@@ -6,19 +6,7 @@
   />
 </p>
 
-<p align="center">
-  <img
-    src="./assets/branding/logo-light.svg"
-    alt="StateKit"
-    width="220"
-  />
-</p>
-
 <div align="center">
-
-# StateKit
-
-Beautiful UI states for React.
 
 <p>
   <a href="https://www.npmjs.com/package/@statekitjs/react"><img src="https://img.shields.io/npm/v/@statekitjs/react?style=for-the-badge" alt="npm version" /></a>
@@ -33,8 +21,6 @@ Build consistent user experiences with one elegant API.
 </p>
 
 </div>
-
----
 
 # Why StateKitJS?
 

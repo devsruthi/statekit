@@ -124,7 +124,7 @@ Storybook serves it via static dirs as `/branding/favicon.svg`.
 
 | Surface | Asset |
 | --- | --- |
-| Root `README.md` | `github-banner.png`, `logo-light.svg` |
+| Root `README.md` | `github-banner.png` |
 | `packages/react/README.md` | `logo-light.svg` |
 | Storybook | `favicon.svg` |
 | Future website OG | `og-image.png` |
