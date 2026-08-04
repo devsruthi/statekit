@@ -4,12 +4,10 @@ import {
   type ReactElement,
   type ReactNode,
 } from 'react';
+import { Empty } from '../components/Empty';
+import { Error as ErrorView } from '../components/Error';
+import { Loading } from '../components/Loading';
 import { STATE_KIND } from '../constants/priority';
-import {
-  EmptyView,
-  ErrorView,
-  LoadingView,
-} from '../components/State/DefaultViews';
 import type { ResolvedState } from './resolveState';
 
 export type RenderStateOptions = {
@@ -25,11 +23,11 @@ export function renderState(
 ): ReactElement | null {
   switch (resolved.type) {
     case STATE_KIND.loading:
-      return createElement(LoadingView);
+      return createElement(Loading);
     case STATE_KIND.error:
       return createElement(ErrorView, { error: resolved.error });
     case STATE_KIND.empty:
-      return createElement(EmptyView);
+      return createElement(Empty);
     case STATE_KIND.success:
       if (children == null) {
         return null;

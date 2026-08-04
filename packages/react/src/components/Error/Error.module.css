@@ -1,0 +1,13 @@
+.root {
+  --sk-error-accent: var(--sk-color-danger);
+  --sk-error-soft: var(--sk-color-danger-soft);
+}
+
+.media {
+  background: var(--sk-error-soft);
+  color: var(--sk-error-accent);
+}
+
+.icon {
+  display: block;
+}

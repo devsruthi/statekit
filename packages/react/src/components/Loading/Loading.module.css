@@ -1,0 +1,46 @@
+.root {
+  --sk-loading-accent: var(--sk-color-accent);
+  --sk-loading-soft: var(--sk-color-accent-soft);
+}
+
+.media {
+  background: var(--sk-loading-soft);
+  color: var(--sk-loading-accent);
+}
+
+.spinner {
+  box-sizing: border-box;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid
+    color-mix(in srgb, var(--sk-loading-accent) 25%, transparent);
+  border-top-color: var(--sk-loading-accent);
+  border-radius: var(--sk-radius-full);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .spinner {
+    animation: sk-spin 0.8s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    border-top-color: var(--sk-loading-accent);
+    border-right-color: var(--sk-loading-accent);
+    opacity: 0.85;
+  }
+}
+
+@keyframes sk-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 40rem) {
+  .spinner {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+}

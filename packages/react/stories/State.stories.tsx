@@ -1,31 +1,29 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { State } from '../src/components/State';
+import styles from './story.module.css';
 
-const meta = {
+const meta: Meta<typeof State> = {
   title: 'Components/State',
   component: State,
   parameters: {
     layout: 'padded',
   },
   tags: ['autodocs'],
-  args: {
-    children: (
-      <div
-        style={{
-          padding: '1.5rem',
-          border: '1px solid #d4d4d4',
-          borderRadius: '0.5rem',
-        }}
-      >
-        Success content
+  decorators: [
+    (Story) => (
+      <div className={styles.frame}>
+        <Story />
       </div>
     ),
+  ],
+  args: {
+    children: <div className={styles.successPanel}>Success content</div>,
   },
-} satisfies Meta<typeof State>;
+};
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof State>;
 
 export const Success: Story = {};
 
@@ -62,5 +60,19 @@ export const PriorityErrorOverEmpty: Story = {
   args: {
     error: 'This error should render',
     empty: true,
+  },
+};
+
+export const DarkThemeLoading: Story = {
+  name: 'Dark theme: loading',
+  decorators: [
+    (Story) => (
+      <div className={styles.darkCanvas} data-statekit-theme="dark">
+        <Story />
+      </div>
+    ),
+  ],
+  args: {
+    loading: true,
   },
 };

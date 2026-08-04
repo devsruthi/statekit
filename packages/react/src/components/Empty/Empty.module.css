@@ -1,0 +1,13 @@
+.root {
+  --sk-empty-accent: var(--sk-color-empty);
+  --sk-empty-soft: var(--sk-color-empty-soft);
+}
+
+.media {
+  background: var(--sk-empty-soft);
+  color: var(--sk-empty-accent);
+}
+
+.icon {
+  display: block;
+}
