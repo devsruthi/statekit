@@ -2,7 +2,7 @@
   <img
     src="./assets/branding/github-banner.svg"
     alt="StateKit Banner"
-    width="480"
+    width="780"
   />
 </p>
 
