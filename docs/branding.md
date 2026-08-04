@@ -11,13 +11,15 @@ All paths below are repository-relative.
 ### `github-banner.png`
 
 **Path:** `./assets/branding/github-banner.png`  
-**Size:** 1280 × 640
+**Size:** 1024 × 682
 
 **Use for:**
 
 - GitHub repository social/header banner
 - Top of the root `README.md`
 - Repo-level marketing visuals
+
+**Artwork:** Centered StateKit mark + wordmark, tagline (“Beautiful UI states for React.”), and values line (“Simple. Accessible. Customizable.”) on a light background.
 
 **Do not use for:**
 
@@ -29,7 +31,9 @@ All paths below are repository-relative.
 ### `social-preview.png`
 
 **Path:** `./assets/branding/social-preview.png`  
-**Size:** 1200 × 630
+**Size:** 1024 × 537
+
+**Artwork:** StateKit mark + wordmark, tagline with cyan “React.”, and state icons (Loading, Empty, Error, Success, Skeletons) on a light background.
 
 **Use for:**
 

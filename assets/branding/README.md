@@ -17,8 +17,8 @@ Do **not** use this folder for React package implementation files.
 | `logo-dark.svg` | Horizontal logo for **dark** backgrounds (light wordmark) |
 | `mark.svg` | Icon-only S mark on a dark rounded tile |
 | `favicon.svg` | Compact S mark on a light rounded tile |
-| `github-banner.png` | GitHub repository banner (`1280×640`) |
-| `social-preview.png` | Social share preview card (`1200×630`) |
+| `github-banner.png` | GitHub repository banner (`1024×682`, light centered lockup) |
+| `social-preview.png` | Social share preview card (`1024×537`, logo + state icons) |
 | `og-image.png` | Default Open Graph image for the future website (`1200×630`) |
 
 ## Logo anatomy
@@ -47,16 +47,19 @@ Do **not** use this folder for React package implementation files.
 
 Replace the current gradient base exports with final designed artwork from the brand board before public launch. Full composition notes live in `docs/branding.md`.
 
-### GitHub banner (`1280×640`)
+### GitHub banner (`1024×682`)
 
-- Dark `#0F172A` field with soft purple/blue waves
-- Left: logo + tagline + state icon row
-- Right: UI state cards (Loading, Empty, Error, Success, Skeletons)
+- Light background
+- Centered S mark + `StateKit` wordmark
+- Tagline: Beautiful UI states for React.
+- Values line: Simple. Accessible. Customizable.
 
-### Social preview (`1200×630`)
+### Social preview (`1024×537`)
 
-- Left: logo + tagline
-- Right: oversized S mark on violet → indigo panel
+- Light background with soft purple/blue accents
+- Centered S mark + `StateKit` wordmark
+- Tagline: Beautiful UI states for React.
+- Icon row: Loading · Empty · Error · Success · Skeletons
 
 ## Rules
 

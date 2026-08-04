@@ -135,15 +135,16 @@ Write with clarity and restraint. Prefer concrete API examples over hype.
 
 ## Banner & social composition
 
-### `github-banner.png` — 1280 × 640
+### `github-banner.png` — 1024 × 682
 
-- Dark navy background with soft violet/indigo waves
-- Left: `logo-dark` lockup + tagline
-- Small state cues: Loading, Empty, Error, Success, Skeletons
-- Right: floating UI cards showing those states
+- Light background
+- Centered S mark + `StateKit` wordmark
+- Tagline: Beautiful UI states for React. (`React` in Accent)
+- Values line: Simple. Accessible. Customizable.
 
-### `social-preview.png` — 1200 × 630
+### `social-preview.png` — 1024 × 537
 
-- Split composition
-- Left: logo + tagline on dark
-- Right: large dimensional S-mark on violet → indigo gradient
+- Light background with soft purple/blue accents
+- Centered S mark + `StateKit` wordmark
+- Tagline: Beautiful UI states for React. (`React` in Accent)
+- Icon row: Loading · Empty · Error · Success · Skeletons
