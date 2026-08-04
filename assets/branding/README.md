@@ -2,72 +2,73 @@
 
 This folder is the branding foundation for the StateKit open-source project.
 
-Use these assets for documentation, GitHub presence, social previews, and community materials.  
+Assets follow the official brand board (stylized **S** mark, Inter wordmark, indigo/violet/cyan palette).  
 Do **not** use this folder for React package implementation files.
 
 ## Contents
 
 | File | Purpose |
 | --- | --- |
-| `brand-guidelines.md` | Source of truth for brand name, package name, mission, vision, values, colors, typography, logo rules, and tone |
+| `brand-board.png` | Master visual brand board used as the design reference |
+| `brand-guidelines.md` | Brand name, package, mission, vision, values, colors, type, logo rules, tone |
 | `README.md` | Explains every asset in this directory |
-| `logo.svg` | Default full-color horizontal logo (mark + wordmark) |
-| `logo-light.svg` | Horizontal logo optimized for dark backgrounds |
-| `logo-dark.svg` | Horizontal logo optimized for light backgrounds |
-| `mark.svg` | Icon-only brand mark for avatars and compact placements |
-| `favicon.svg` | Small icon for browser tabs and site favicons |
-| `github-banner.png` | Placeholder for the GitHub repository banner (`1280×640`) |
-| `social-preview.png` | Placeholder for Open Graph / social share cards (`1200×630`) |
+| `logo.svg` | Primary horizontal logo + tagline (`React` in accent cyan) |
+| `logo-light.svg` | Horizontal logo for **light** backgrounds (dark wordmark) |
+| `logo-dark.svg` | Horizontal logo for **dark** backgrounds (light wordmark) |
+| `mark.svg` | Icon-only S mark on a dark rounded tile |
+| `favicon.svg` | Compact S mark on a light rounded tile |
+| `github-banner.png` | Placeholder for GitHub banner (`1280×640`) |
+| `social-preview.png` | Placeholder for social/OG card (`1200×630`) |
 
-## Logo assets
+## Logo anatomy
 
-### `logo.svg`
+```
+[ S-mark ]  StateKit
+            Beautiful UI states for React.
+```
 
-Primary horizontal lockup. Prefer this whenever horizontal space is available.
+- **Mark:** rounded S stroke (Secondary → Primary gradient) + Accent cyan status dot
+- **Wordmark:** Inter Bold, `StateKit`
+- **Tagline:** Inter Medium; `React` uses Accent `#06B6D4`
 
-### `logo-light.svg`
+## When to use each logo
 
-Use on dark surfaces such as dark documentation themes, dark hero sections, and dark social cards.
-
-### `logo-dark.svg`
-
-Use on light surfaces such as README headers, light documentation pages, and light marketing sections.
-
-### `mark.svg`
-
-Icon-only mark. Use when the wordmark cannot fit comfortably:
-
-- GitHub avatar
-- social avatar
-- compact navigation
-- app icons
-
-### `favicon.svg`
-
-Optimized square mark for favicons and other very small UI chrome.
+| Situation | Asset |
+| --- | --- |
+| README hero, docs dark theme, default lockup | `logo.svg` or `logo-dark.svg` |
+| Light docs / light marketing surfaces | `logo-light.svg` |
+| GitHub avatar, app icon, compact nav | `mark.svg` |
+| Browser tab icon | `favicon.svg` |
 
 ## Image placeholders
 
-`github-banner.png` and `social-preview.png` are **text placeholders**, not final binary images.
+`github-banner.png` and `social-preview.png` are **text placeholders**, not final binary PNGs.
 
-They document:
+They document intended size and composition from the brand board. Replace them with exported artwork before public rollout.
 
-- intended dimensions
-- usage context
-- composition guidance
+### GitHub banner (`1280×640`)
 
-Replace them with exported PNGs before public brand rollout.
+- Dark `#0F172A` field with soft purple/blue waves
+- Left: logo + tagline + state icon row
+- Right: UI state cards (Loading, Empty, Error, Success, Skeletons)
 
-## Usage rules
+### Social preview (`1200×630`)
 
-1. Follow `brand-guidelines.md` for color, type, tone, and logo behavior.
-2. Prefer SVG for logos whenever the host supports it.
-3. Never stretch, rotate, or recolor logo artwork outside the approved variants.
-4. Keep semantic colors (Success, Warning, Error) out of the logo itself.
-5. When in doubt, choose the simpler composition.
+- Left: logo + tagline
+- Right: oversized S mark on violet → indigo panel
+
+## Rules
+
+1. Follow `brand-guidelines.md` as the source of truth.
+2. Prefer SVG logos whenever the host supports SVG.
+3. Never stretch, rotate, or recolor the mark outside approved variants.
+4. Keep the cyan status dot — it is part of the identity.
+5. Keep semantic colors (Success / Warning / Error) out of the logo.
 
 ## Quick reference
 
-- **Brand:** StateKit
-- **Package:** `@statekitjs/react`
-- **Tagline:** Beautiful UI states for React.
+- **Brand:** StateKit  
+- **Package:** `@statekitjs/react`  
+- **Tagline:** Beautiful UI states for React.  
+- **Primary:** `#4F46E5` · **Secondary:** `#7C3AED` · **Accent:** `#06B6D4`  
+- **Dark:** `#0F172A` · **Light:** `#F8FAFC`

@@ -30,23 +30,32 @@ Become the standard UI state library for modern React applications.
 
 ## Color Palette
 
-| Role | Hex | Usage |
+| Role | Hex | Swatch intent |
 | --- | --- | --- |
-| Primary | `#4F46E5` | Brand mark, primary actions, key emphasis |
-| Secondary | `#7C3AED` | Gradients, secondary accents |
-| Accent | `#06B6D4` | Highlights, links, supporting emphasis |
-| Dark | `#0F172A` | Dark surfaces, dark-theme wordmarks |
-| Light | `#F8FAFC` | Light surfaces, light-theme backgrounds |
-| Success | `#22C55E` | Success states only |
-| Warning | `#F59E0B` | Warning states only |
-| Error | `#EF4444` | Error states only |
+| Primary | `#4F46E5` | Indigo — core brand, S-mark midtone |
+| Secondary | `#7C3AED` | Violet — S-mark highlight / gradient start |
+| Accent | `#06B6D4` | Cyan — status dot, “React” highlight, links |
+| Dark | `#0F172A` | Deep navy — dark surfaces, mark tile |
+| Light | `#F8FAFC` | Soft white — light surfaces, dark-theme text |
+| Success | `#22C55E` | Semantic success only |
+| Warning | `#F59E0B` | Semantic warning only |
+| Error | `#EF4444` | Semantic error only |
+
+### Mark gradient
+
+The brand mark uses a violet → indigo gradient with a cyan terminal dot:
+
+1. `#7C3AED` (Secondary)
+2. `#4F46E5` (Primary)
+3. `#3730A3` (deep indigo support)
+4. `#06B6D4` (Accent status dot)
 
 ### Usage notes
 
-- Prefer Primary for the core brand presence.
-- Use Secondary with Primary for restrained gradients when needed.
-- Keep Success, Warning, and Error semantic—do not use them as general brand colors.
-- Maintain strong contrast when placing logos on Light or Dark surfaces.
+- Prefer Primary + Secondary for brand presence and gradients.
+- Use Accent for emphasis only (status, React highlight, interactive cues).
+- Keep Success / Warning / Error semantic — never in the logo mark.
+- Place logos on Dark (`#0F172A`) or Light (`#F8FAFC`) for reliable contrast.
 
 ## Typography
 
@@ -54,36 +63,59 @@ Become the standard UI state library for modern React applications.
 
 **Inter**
 
-Use for headings, body copy, documentation, and marketing surfaces.
+Use for headings, UI, documentation, and marketing.
+
+Wordmark guidance:
+
+- `StateKit` set in Inter Bold
+- Tracking slightly tight (`-0.03em`) for the lockup
 
 ### Code Font
 
 **JetBrains Mono**
 
-Use for code samples, API names, package identifiers, and terminal-style content.
+Use for package names, props, snippets, and terminal-style content.
 
-## Logo Usage
+## Logo System
+
+The identity is built from:
+
+1. **Mark** — stylized “S” stroke with cyan status dot  
+2. **Wordmark** — `StateKit`  
+3. **Tagline** — `Beautiful UI states for React.` (`React` in Accent)
+
+### Files
+
+| Asset | Use |
+| --- | --- |
+| `logo.svg` | Primary lockup with tagline (default / dark surfaces) |
+| `logo-light.svg` | Horizontal lockup for **light** backgrounds (dark wordmark) |
+| `logo-dark.svg` | Horizontal lockup for **dark** backgrounds (light wordmark) |
+| `mark.svg` | Icon-only mark on dark rounded tile |
+| `favicon.svg` | Compact mark on light rounded tile |
+
+### Usage rules
 
 Always use the horizontal logo when space allows.
 
-Use the icon-only logo (`mark.svg` / `favicon.svg`) for:
+Use the icon-only logo for:
 
 - favicon
 - GitHub avatar
 - social avatar
 
-### Do
+**Do**
 
-- Keep clear space around the logo equal to at least the height of the mark.
-- Use `logo-light.svg` on dark backgrounds.
-- Use `logo-dark.svg` on light backgrounds.
-- Use `logo.svg` as the default full-color horizontal lockup.
+- Keep clear space around the logo ≥ the height of the mark
+- Use approved light/dark variants for contrast
+- Keep the cyan status dot and gradient intact
 
-### Do not
+**Do not**
 
-- Stretch the logo
+- Stretch or distort the logo
 - Rotate the logo
-- Recolor the logo outside approved light/dark variants
+- Recolor the logo outside approved variants
+- Remove the accent dot
 - Add shadows, outlines, or glow effects
 - Place the logo on busy or low-contrast imagery
 
@@ -97,4 +129,21 @@ StateKit should always feel:
 - Minimal
 - Developer First
 
-Write with clarity and restraint. Prefer concrete API examples over hype. Stay welcoming to contributors while remaining precise and production-minded.
+Also prioritize **Accessible** — accessibility is part of the brand promise, not an afterthought.
+
+Write with clarity and restraint. Prefer concrete API examples over hype.
+
+## Banner & social composition
+
+### `github-banner.png` — 1280 × 640
+
+- Dark navy background with soft violet/indigo waves
+- Left: `logo-dark` lockup + tagline
+- Small state cues: Loading, Empty, Error, Success, Skeletons
+- Right: floating UI cards showing those states
+
+### `social-preview.png` — 1200 × 630
+
+- Split composition
+- Left: logo + tagline on dark
+- Right: large dimensional S-mark on violet → indigo gradient

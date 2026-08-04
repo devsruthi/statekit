@@ -1,21 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" role="img" aria-label="StateKit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-label="StateKit — Beautiful UI states for React.">
   <title>StateKit</title>
+  <desc>Horizontal logo with mark, wordmark, and tagline</desc>
   <defs>
-    <linearGradient id="sk-mark" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#4F46E5"/>
-      <stop offset="1" stop-color="#7C3AED"/>
+    <linearGradient id="skSGrad" x1="16" y1="20" x2="72" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="45%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#3730A3"/>
     </linearGradient>
   </defs>
-  <rect x="4" y="8" width="48" height="48" rx="12" fill="url(#sk-mark)"/>
-  <circle cx="28" cy="32" r="10" fill="none" stroke="#F8FAFC" stroke-width="3"/>
-  <circle cx="28" cy="32" r="3.5" fill="#06B6D4"/>
+
+  <!-- Mark -->
+  <g transform="translate(8 18) scale(1.05)">
+    <path
+      d="M46 17.5
+         C46 11.5 40.5 7 32 7
+         C23.5 7 18 11.8 18 18.5
+         C18 24.2 21.8 27.4 32 30.5
+         C42.2 33.6 48 38.2 48 46
+         C48 53.5 41.8 58.5 32 58.5
+         C23 58.5 17.5 54.2 16.5 48"
+      fill="none"
+      stroke="url(#skSGrad)"
+      stroke-width="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <circle cx="16.5" cy="48" r="5.25" fill="#06B6D4"/>
+  </g>
+
+  <!-- Wordmark -->
   <text
-    x="68"
-    y="42"
-    fill="#0F172A"
+    x="96"
+    y="58"
+    fill="#F8FAFC"
     font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
-    font-size="28"
+    font-size="42"
     font-weight="700"
-    letter-spacing="-0.02em"
+    letter-spacing="-0.03em"
   >StateKit</text>
+
+  <!-- Tagline -->
+  <text
+    x="98"
+    y="92"
+    fill="#94A3B8"
+    font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+    font-size="16"
+    font-weight="500"
+  >Beautiful UI states for <tspan fill="#06B6D4" font-weight="600">React</tspan>.</text>
 </svg>
