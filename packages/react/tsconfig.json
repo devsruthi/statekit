@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@statekit/react": ["./src/index.ts"],
+      "@statekit/react/*": ["./src/*"]
+    },
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"]
+  },
+  "include": [
+    "src",
+    "stories",
+    "tests",
+    ".storybook",
+    "vite.config.ts",
+    "tsup.config.ts"
+  ],
+  "exclude": ["dist", "node_modules", "coverage", "storybook-static"]
+}
