@@ -58,7 +58,6 @@ Readable.
 
 Consistent.
 
----
 
 # Features
 
@@ -75,7 +74,6 @@ Consistent.
 - 🔷 TypeScript support
 - 🎨 Fully customizable
 
----
 
 # Packages
 
@@ -90,7 +88,6 @@ More packages are planned.
 - @statekitjs/utils
 - @statekitjs/cli
 
----
 
 # Quick Example
 
@@ -116,7 +113,6 @@ function UsersPage() {
 }
 ```
 
----
 
 # Installation
 
@@ -130,7 +126,6 @@ or
 pnpm add @statekitjs/react
 ```
 
----
 
 # Project Structure
 
@@ -151,7 +146,6 @@ statekit
 └── rfcs/
 ```
 
----
 
 # Philosophy
 
@@ -161,7 +155,6 @@ Making application states beautiful.
 
 Instead of writing repetitive conditional rendering across your application, developers should describe the state—not how to render it.
 
----
 
 # Roadmap
 
@@ -172,7 +165,6 @@ Instead of writing repetitive conditional rendering across your application, dev
 - Dashboard Skeleton
 - Timeline Skeleton
 
----
 
 ## v0.3
 
@@ -180,7 +172,6 @@ Instead of writing repetitive conditional rendering across your application, dev
 - SWR Integration
 - RTK Query Integration
 
----
 
 ## v0.4
 
@@ -188,7 +179,6 @@ Instead of writing repetitive conditional rendering across your application, dev
 - Dark Mode
 - Custom Animations
 
----
 
 ## v1.0
 
@@ -196,7 +186,6 @@ Instead of writing repetitive conditional rendering across your application, dev
 - Complete Documentation
 - Production Ready
 
----
 
 # Contributing
 
@@ -210,7 +199,6 @@ pnpm install
 pnpm dev
 ```
 
----
 
 # Documentation
 
@@ -223,7 +211,6 @@ Coming soon.
 - Recipes
 - [Branding assets](./docs/branding.md)
 
----
 
 # Built With
 
@@ -236,13 +223,11 @@ Coming soon.
 - Changesets
 - GitHub Actions
 
----
 
 # License
 
 MIT
 
----
 
 <div align="center">
 
