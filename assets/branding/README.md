@@ -17,7 +17,7 @@ Do **not** use this folder for React package implementation files.
 | `logo-dark.svg` | Horizontal logo for **dark** backgrounds (light wordmark) |
 | `mark.svg` | Icon-only S mark on a dark rounded tile |
 | `favicon.svg` | Compact S mark on a light rounded tile |
-| `github-banner.png` | GitHub repository banner (`1024×682`, light centered lockup) |
+| `github-banner.svg` / `.png` | README banner (`960×320`, light centered lockup; SVG preferred) |
 | `social-preview.png` | Social share preview card (`1024×537`, logo + state icons) |
 | `og-image.png` | Default Open Graph image for the future website (`1200×630`) |
 

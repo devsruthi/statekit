@@ -8,9 +8,9 @@ All paths below are repository-relative.
 
 ## Asset guide
 
-### `github-banner.png`
+### `github-banner.svg` / `github-banner.png`
 
-**Path:** `./assets/branding/github-banner.png`  
+**Path:** `./assets/branding/github-banner.svg` (README) · `./assets/branding/github-banner.png` (raster)  
 **Size:** 1024 × 682
 
 **Use for:**
@@ -124,7 +124,7 @@ Storybook serves it via static dirs as `/branding/favicon.svg`.
 
 | Surface | Asset |
 | --- | --- |
-| Root `README.md` | `github-banner.png` |
+| Root `README.md` | `github-banner.svg` (480px display width) |
 | `packages/react/README.md` | `logo-light.svg` |
 | Storybook | `favicon.svg` |
 | Future website OG | `og-image.png` |

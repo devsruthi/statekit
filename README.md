@@ -1,8 +1,8 @@
 <p align="center">
   <img
-    src="./assets/branding/github-banner.png"
+    src="./assets/branding/github-banner.svg"
     alt="StateKit Banner"
-    width="100%"
+    width="480"
   />
 </p>
 
