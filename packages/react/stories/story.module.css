@@ -5,6 +5,13 @@
   padding: 1rem;
 }
 
+.wideFrame {
+  box-sizing: border-box;
+  width: min(100%, 48rem);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
 .successPanel {
   box-sizing: border-box;
   padding: 1.5rem;

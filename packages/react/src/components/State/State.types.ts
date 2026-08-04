@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { StateLayout } from '../../constants/layout';
 
 export type StateProps = {
   /**
@@ -15,6 +16,13 @@ export type StateProps = {
    * When true, renders the empty state.
    */
   empty?: boolean;
+  /**
+   * Layout hint for smart loading skeletons.
+   * Only affects the loading state.
+   *
+   * @default "default"
+   */
+  layout?: StateLayout;
   /**
    * Success content rendered when no loading, error, or empty state is active.
    */

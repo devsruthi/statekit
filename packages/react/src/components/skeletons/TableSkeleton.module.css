@@ -1,0 +1,81 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-3);
+}
+
+.header,
+.row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 0.8fr 0.7fr;
+  gap: var(--sk-space-3);
+  align-items: center;
+}
+
+.header {
+  padding-bottom: var(--sk-space-2);
+  border-bottom: 1px solid var(--sk-color-border);
+}
+
+.row {
+  padding: var(--sk-space-2) 0;
+}
+
+.cellLg {
+  height: 0.85rem;
+  width: 100%;
+}
+
+.cellMd {
+  height: 0.85rem;
+  width: 78%;
+}
+
+.cellSm {
+  height: 0.85rem;
+  width: 56%;
+}
+
+.cellXs {
+  height: 0.85rem;
+  width: 42%;
+}
+
+@media (max-width: 48rem) {
+  .header,
+  .row {
+    grid-template-columns: 1.3fr 1fr 0.8fr;
+  }
+
+  .colOptional {
+    display: none;
+  }
+}
+
+@media (max-width: 40rem) {
+  .header {
+    display: none;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--sk-space-2);
+    padding: var(--sk-space-3);
+    border: 1px solid var(--sk-color-border);
+    border-radius: var(--sk-radius-sm);
+  }
+
+  .cellMd,
+  .cellSm,
+  .cellXs {
+    width: 100%;
+  }
+
+  .colSecondary {
+    width: 70%;
+  }
+
+  .colTertiary {
+    width: 45%;
+  }
+}

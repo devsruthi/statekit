@@ -37,6 +37,8 @@
   --sk-line-height: 1.5;
   --sk-min-height: 12rem;
   --sk-max-width: 22rem;
+  --sk-skeleton: #e4ebf1;
+  --sk-skeleton-highlight: #f5f8fb;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,6 +57,8 @@
     --sk-color-empty-soft: #1c2a48;
     --sk-shadow: 0 1px 2px rgb(0 0 0 / 25%), 0 12px 28px rgb(0 0 0 / 28%);
     --sk-focus-ring: 0 0 0 3px rgb(94 196 190 / 35%);
+    --sk-skeleton: #243442;
+    --sk-skeleton-highlight: #314556;
   }
 }
 
@@ -74,6 +78,8 @@
   --sk-color-empty-soft: #1c2a48;
   --sk-shadow: 0 1px 2px rgb(0 0 0 / 25%), 0 12px 28px rgb(0 0 0 / 28%);
   --sk-focus-ring: 0 0 0 3px rgb(94 196 190 / 35%);
+  --sk-skeleton: #243442;
+  --sk-skeleton-highlight: #314556;
 }
 
 :global([data-statekit][data-statekit-theme='light']),
@@ -92,6 +98,8 @@
   --sk-color-empty-soft: #e8eefc;
   --sk-shadow: 0 1px 2px rgb(20 33 43 / 4%), 0 8px 24px rgb(20 33 43 / 6%);
   --sk-focus-ring: 0 0 0 3px rgb(15 110 106 / 35%);
+  --sk-skeleton: #e4ebf1;
+  --sk-skeleton-highlight: #f5f8fb;
 }
 
 .surface {

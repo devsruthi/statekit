@@ -7,9 +7,13 @@ describe('@statekit/react public API', () => {
     expect(State).toBeTypeOf('function');
   });
 
-  it('does not export internal Loading, Error, or Empty components', () => {
+  it('does not export internal Loading, Error, Empty, or skeleton components', () => {
     expect(publicApi).not.toHaveProperty('Loading');
     expect(publicApi).not.toHaveProperty('Error');
     expect(publicApi).not.toHaveProperty('Empty');
+    expect(publicApi).not.toHaveProperty('TableSkeleton');
+    expect(publicApi).not.toHaveProperty('GridSkeleton');
+    expect(publicApi).not.toHaveProperty('ListSkeleton');
+    expect(publicApi).not.toHaveProperty('DefaultLoading');
   });
 });

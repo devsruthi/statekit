@@ -1,17 +1,19 @@
 import {
-  createElement,
   Fragment,
+  createElement,
   type ReactElement,
   type ReactNode,
 } from 'react';
 import { Empty } from '../components/Empty';
 import { Error as ErrorView } from '../components/Error';
-import { Loading } from '../components/Loading';
+import { STATE_LAYOUT, type StateLayout } from '../constants/layout';
 import { STATE_KIND } from '../constants/priority';
+import { renderLoading } from './renderLoading';
 import type { ResolvedState } from './resolveState';
 
 export type RenderStateOptions = {
   children?: ReactNode;
+  layout?: StateLayout;
 };
 
 /**
@@ -19,11 +21,11 @@ export type RenderStateOptions = {
  */
 export function renderState(
   resolved: ResolvedState,
-  { children }: RenderStateOptions = {},
+  { children, layout = STATE_LAYOUT.default }: RenderStateOptions = {},
 ): ReactElement | null {
   switch (resolved.type) {
     case STATE_KIND.loading:
-      return createElement(Loading);
+      return renderLoading(layout);
     case STATE_KIND.error:
       return createElement(ErrorView, { error: resolved.error });
     case STATE_KIND.empty:

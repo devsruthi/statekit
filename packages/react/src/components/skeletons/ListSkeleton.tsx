@@ -1,0 +1,27 @@
+import type { ReactElement } from 'react';
+import { SkeletonBone, SkeletonRoot } from './SkeletonPrimitives';
+import styles from './ListSkeleton.module.css';
+
+const ITEMS = [0, 1, 2, 3, 4] as const;
+
+/**
+ * List-shaped loading skeleton used by State when layout="list".
+ * Internal only — not part of the public package API.
+ */
+export function ListSkeleton(): ReactElement {
+  return (
+    <SkeletonRoot layout="list" label="Loading list">
+      <div className={styles.list}>
+        {ITEMS.map((item) => (
+          <div className={styles.item} key={item}>
+            <SkeletonBone className={styles.avatar} />
+            <div className={styles.copy}>
+              <SkeletonBone className={styles.line} />
+              <SkeletonBone className={styles.lineShort} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </SkeletonRoot>
+  );
+}

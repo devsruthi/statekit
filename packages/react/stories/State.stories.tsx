@@ -33,6 +33,44 @@ export const Loading: Story = {
   },
 };
 
+export const LoadingTable: Story = {
+  name: 'Loading / table',
+  decorators: [
+    (Story) => (
+      <div className={styles.wideFrame}>
+        <Story />
+      </div>
+    ),
+  ],
+  args: {
+    loading: true,
+    layout: 'table',
+  },
+};
+
+export const LoadingGrid: Story = {
+  name: 'Loading / grid',
+  decorators: [
+    (Story) => (
+      <div className={styles.wideFrame}>
+        <Story />
+      </div>
+    ),
+  ],
+  args: {
+    loading: true,
+    layout: 'grid',
+  },
+};
+
+export const LoadingList: Story = {
+  name: 'Loading / list',
+  args: {
+    loading: true,
+    layout: 'list',
+  },
+};
+
 export const ErrorState: Story = {
   name: 'Error',
   args: {
@@ -74,5 +112,20 @@ export const DarkThemeLoading: Story = {
   ],
   args: {
     loading: true,
+  },
+};
+
+export const DarkThemeTable: Story = {
+  name: 'Dark theme: table skeleton',
+  decorators: [
+    (Story) => (
+      <div className={styles.darkCanvas} data-statekit-theme="dark">
+        <Story />
+      </div>
+    ),
+  ],
+  args: {
+    loading: true,
+    layout: 'table',
   },
 };
