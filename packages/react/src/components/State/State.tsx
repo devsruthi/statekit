@@ -15,8 +15,32 @@ export function State({
   error,
   empty = false,
   layout = STATE_LAYOUT.default,
+  loadingTitle,
+  loadingDescription,
+  emptyTitle,
+  emptyDescription,
+  errorTitle,
+  errorDescription,
+  loadingComponent,
+  emptyComponent,
+  errorComponent,
+  onRetry,
   children,
 }: StateProps): ReactElement | null {
   const resolved = resolveState({ loading, error, empty });
-  return renderState(resolved, { children, layout });
+
+  return renderState(resolved, {
+    children,
+    layout,
+    loadingTitle,
+    loadingDescription,
+    emptyTitle,
+    emptyDescription,
+    errorTitle,
+    errorDescription,
+    loadingComponent,
+    emptyComponent,
+    errorComponent,
+    onRetry,
+  });
 }

@@ -11,3 +11,35 @@
 .icon {
   display: block;
 }
+
+.retry {
+  appearance: none;
+  margin-top: var(--sk-space-1);
+  padding: var(--sk-space-2) var(--sk-space-4);
+  border: 1px solid var(--sk-color-border);
+  border-radius: var(--sk-radius-sm);
+  background: var(--sk-color-bg);
+  color: var(--sk-color-fg);
+  font: inherit;
+  font-size: var(--sk-font-size-sm);
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.retry:hover {
+  background: var(--sk-color-bg-elevated);
+}
+
+.retry:focus-visible {
+  outline: none;
+  box-shadow: var(--sk-focus-ring);
+}
+
+@media (max-width: 40rem) {
+  .retry {
+    width: 100%;
+    max-width: 16rem;
+    min-height: 2.5rem;
+  }
+}

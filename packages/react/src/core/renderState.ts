@@ -14,26 +14,80 @@ import type { ResolvedState } from './resolveState';
 export type RenderStateOptions = {
   children?: ReactNode;
   layout?: StateLayout;
+  loadingTitle?: string;
+  loadingDescription?: string;
+  emptyTitle?: string;
+  emptyDescription?: string;
+  errorTitle?: string;
+  errorDescription?: string;
+  loadingComponent?: ReactNode;
+  emptyComponent?: ReactNode;
+  errorComponent?: ReactNode;
+  onRetry?: () => void;
 };
+
+function renderNode(node: ReactNode): ReactElement {
+  return createElement(Fragment, null, node);
+}
 
 /**
  * Maps a resolved application state to the corresponding React tree.
  */
 export function renderState(
   resolved: ResolvedState,
-  { children, layout = STATE_LAYOUT.default }: RenderStateOptions = {},
+  {
+    children,
+    layout = STATE_LAYOUT.default,
+    loadingTitle,
+    loadingDescription,
+    emptyTitle,
+    emptyDescription,
+    errorTitle,
+    errorDescription,
+    loadingComponent,
+    emptyComponent,
+    errorComponent,
+    onRetry,
+  }: RenderStateOptions = {},
 ): ReactElement | null {
   switch (resolved.type) {
     case STATE_KIND.loading:
-      return renderLoading(layout);
+      if (loadingComponent != null) {
+        return renderNode(loadingComponent);
+      }
+
+      return renderLoading(layout, {
+        title: loadingTitle,
+        description: loadingDescription,
+      });
+
     case STATE_KIND.error:
-      return createElement(ErrorView, { error: resolved.error });
+      if (errorComponent != null) {
+        return renderNode(errorComponent);
+      }
+
+      return createElement(ErrorView, {
+        error: resolved.error,
+        title: errorTitle,
+        description: errorDescription,
+        onRetry,
+      });
+
     case STATE_KIND.empty:
-      return createElement(Empty);
+      if (emptyComponent != null) {
+        return renderNode(emptyComponent);
+      }
+
+      return createElement(Empty, {
+        title: emptyTitle,
+        description: emptyDescription,
+      });
+
     case STATE_KIND.success:
       if (children == null) {
         return null;
       }
+
       return createElement(Fragment, null, children);
   }
 }

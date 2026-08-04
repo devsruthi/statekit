@@ -4,13 +4,19 @@ import styles from './ListSkeleton.module.css';
 
 const ITEMS = [0, 1, 2, 3, 4] as const;
 
+export type ListSkeletonProps = {
+  label?: string;
+};
+
 /**
  * List-shaped loading skeleton used by State when layout="list".
  * Internal only — not part of the public package API.
  */
-export function ListSkeleton(): ReactElement {
+export function ListSkeleton({
+  label = 'Loading list',
+}: ListSkeletonProps): ReactElement {
   return (
-    <SkeletonRoot layout="list" label="Loading list">
+    <SkeletonRoot layout="list" label={label}>
       <div className={styles.list}>
         {ITEMS.map((item) => (
           <div className={styles.item} key={item}>

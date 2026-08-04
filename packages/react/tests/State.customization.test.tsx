@@ -1,0 +1,141 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
+import { State } from '../src/components/State';
+
+describe('State customization', () => {
+  it('customizes default loading copy', () => {
+    render(
+      <State
+        loading
+        loadingTitle="Fetching users"
+        loadingDescription="Hang tight."
+      >
+        <div>Users</div>
+      </State>,
+    );
+
+    expect(
+      screen.getByRole('heading', { name: 'Fetching users' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText('Hang tight.')).toBeInTheDocument();
+  });
+
+  it('customizes default empty copy', () => {
+    render(
+      <State
+        empty
+        emptyTitle="No users found"
+        emptyDescription="Invite a teammate to get started."
+      >
+        <div>Users</div>
+      </State>,
+    );
+
+    expect(
+      screen.getByRole('heading', { name: 'No users found' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('Invite a teammate to get started.'),
+    ).toBeInTheDocument();
+  });
+
+  it('customizes default error copy and retry', async () => {
+    const user = userEvent.setup();
+    const onRetry = vi.fn();
+
+    render(
+      <State
+        error={new Error('network')}
+        errorTitle="Could not load users"
+        errorDescription="Check your connection and try again."
+        onRetry={onRetry}
+      >
+        <div>Users</div>
+      </State>,
+    );
+
+    expect(
+      screen.getByRole('heading', { name: 'Could not load users' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('Check your connection and try again.'),
+    ).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Try again' }));
+    expect(onRetry).toHaveBeenCalledTimes(1);
+  });
+
+  it('uses a custom loading component instead of the default UI', () => {
+    render(
+      <State
+        loading
+        loadingTitle="Ignored"
+        loadingComponent={<div>Custom spinner</div>}
+      >
+        <div>Users</div>
+      </State>,
+    );
+
+    expect(screen.getByText('Custom spinner')).toBeInTheDocument();
+    expect(screen.queryByText('Ignored')).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('heading', { name: 'Loading' }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('uses a custom loading component instead of layout skeletons', () => {
+    render(
+      <State
+        loading
+        layout="table"
+        loadingComponent={<div>Custom table loader</div>}
+      >
+        <div>Users</div>
+      </State>,
+    );
+
+    expect(screen.getByText('Custom table loader')).toBeInTheDocument();
+    expect(screen.queryByText('Loading table')).not.toBeInTheDocument();
+  });
+
+  it('uses a custom empty component instead of the default UI', () => {
+    render(
+      <State empty emptyComponent={<div>Nothing here</div>}>
+        <div>Users</div>
+      </State>,
+    );
+
+    expect(screen.getByText('Nothing here')).toBeInTheDocument();
+    expect(screen.queryByText('No data')).not.toBeInTheDocument();
+  });
+
+  it('uses a custom error component instead of the default UI', () => {
+    render(
+      <State
+        error="boom"
+        errorTitle="Ignored"
+        onRetry={() => undefined}
+        errorComponent={<div>Custom error panel</div>}
+      >
+        <div>Users</div>
+      </State>,
+    );
+
+    expect(screen.getByText('Custom error panel')).toBeInTheDocument();
+    expect(screen.queryByText('Ignored')).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'Try again' }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('passes loadingTitle through to skeleton labels', () => {
+    render(
+      <State loading layout="list" loadingTitle="Refreshing inbox">
+        <div>Inbox</div>
+      </State>,
+    );
+
+    expect(screen.getByText('Refreshing inbox')).toBeInTheDocument();
+  });
+});

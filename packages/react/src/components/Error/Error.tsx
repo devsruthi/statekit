@@ -6,7 +6,7 @@ import styles from './Error.module.css';
 
 export type ErrorProps = {
   /**
-   * Error value used to derive the visible message.
+   * Error value used to derive the visible message when `description` is omitted.
    */
   error?: unknown;
   /**
@@ -14,6 +14,14 @@ export type ErrorProps = {
    * @default "Something went wrong"
    */
   title?: string;
+  /**
+   * Supporting copy. When omitted, a message is derived from `error`.
+   */
+  description?: string;
+  /**
+   * Optional retry handler. When provided, a retry button is rendered.
+   */
+  onRetry?: () => void;
 };
 
 /**
@@ -23,8 +31,10 @@ export type ErrorProps = {
 export function Error({
   error,
   title = 'Something went wrong',
+  description,
+  onRetry,
 }: ErrorProps): ReactElement {
-  const message = getErrorMessage(error);
+  const message = description ?? getErrorMessage(error);
 
   return (
     <section
@@ -62,6 +72,11 @@ export function Error({
         <h2 className={surface.title}>{title}</h2>
         <p className={surface.description}>{message}</p>
       </div>
+      {onRetry ? (
+        <button type="button" className={styles.retry} onClick={onRetry}>
+          Try again
+        </button>
+      ) : null}
     </section>
   );
 }

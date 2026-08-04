@@ -33,6 +33,15 @@ export const Loading: Story = {
   },
 };
 
+export const LoadingCustomCopy: Story = {
+  name: 'Loading / custom copy',
+  args: {
+    loading: true,
+    loadingTitle: 'Fetching users',
+    loadingDescription: 'This usually takes less than a second.',
+  },
+};
+
 export const LoadingTable: Story = {
   name: 'Loading / table',
   decorators: [
@@ -71,6 +80,16 @@ export const LoadingList: Story = {
   },
 };
 
+export const LoadingCustomComponent: Story = {
+  name: 'Loading / custom component',
+  args: {
+    loading: true,
+    loadingComponent: (
+      <div className={styles.customPanel}>Custom loading experience</div>
+    ),
+  },
+};
+
 export const ErrorState: Story = {
   name: 'Error',
   args: {
@@ -78,9 +97,55 @@ export const ErrorState: Story = {
   },
 };
 
+export const ErrorCustomCopy: Story = {
+  name: 'Error / custom copy',
+  args: {
+    error: new Error('network'),
+    errorTitle: 'Could not load users',
+    errorDescription: 'Check your connection and try again.',
+  },
+};
+
+export const ErrorWithRetry: Story = {
+  name: 'Error / retry',
+  args: {
+    error: new Error('Unable to fetch users.'),
+    onRetry: () => undefined,
+  },
+};
+
+export const ErrorCustomComponent: Story = {
+  name: 'Error / custom component',
+  args: {
+    error: true,
+    errorComponent: (
+      <div className={styles.customPanel}>Custom error experience</div>
+    ),
+  },
+};
+
 export const Empty: Story = {
   args: {
     empty: true,
+  },
+};
+
+export const EmptyCustomCopy: Story = {
+  name: 'Empty / custom copy',
+  args: {
+    empty: true,
+    emptyTitle: 'No users found',
+    emptyDescription: 'Try adjusting your filters or invite a teammate.',
+  },
+};
+
+export const EmptyCustomComponent: Story = {
+  name: 'Empty / custom component',
+  args: {
+    empty: true,
+    emptyComponent: (
+      <div className={styles.customPanel}>Custom empty experience</div>
+    ),
   },
 };
 
