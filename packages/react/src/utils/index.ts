@@ -2,4 +2,4 @@
  * Shared utilities for StateKit.
  */
 
-export {};
+export { getErrorMessage } from './getErrorMessage';
