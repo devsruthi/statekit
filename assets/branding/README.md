@@ -17,8 +17,9 @@ Do **not** use this folder for React package implementation files.
 | `logo-dark.svg` | Horizontal logo for **dark** backgrounds (light wordmark) |
 | `mark.svg` | Icon-only S mark on a dark rounded tile |
 | `favicon.svg` | Compact S mark on a light rounded tile |
-| `github-banner.png` | Placeholder for GitHub banner (`1280×640`) |
-| `social-preview.png` | Placeholder for social/OG card (`1200×630`) |
+| `github-banner.png` | GitHub repository banner (`1280×640`) |
+| `social-preview.png` | Social share preview card (`1200×630`) |
+| `og-image.png` | Default Open Graph image for the future website (`1200×630`) |
 
 ## Logo anatomy
 
@@ -40,11 +41,11 @@ Do **not** use this folder for React package implementation files.
 | GitHub avatar, app icon, compact nav | `mark.svg` |
 | Browser tab icon | `favicon.svg` |
 
-## Image placeholders
+## Raster images
 
-`github-banner.png` and `social-preview.png` are **text placeholders**, not final binary PNGs.
+`github-banner.png`, `social-preview.png`, and `og-image.png` are brand raster assets.
 
-They document intended size and composition from the brand board. Replace them with exported artwork before public rollout.
+Replace the current gradient base exports with final designed artwork from the brand board before public launch. Full composition notes live in `docs/branding.md`.
 
 ### GitHub banner (`1280×640`)
 

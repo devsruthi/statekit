@@ -17,6 +17,20 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
+  staticDirs: [
+    {
+      from: '../../../assets/branding',
+      to: '/branding',
+    },
+  ],
+  managerHead: (head) => `
+    ${head}
+    <link rel="icon" type="image/svg+xml" href="/branding/favicon.svg" />
+  `,
+  previewHead: (head) => `
+    ${head}
+    <link rel="icon" type="image/svg+xml" href="/branding/favicon.svg" />
+  `,
 };
 
 export default config;

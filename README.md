@@ -1,22 +1,35 @@
+<p align="center">
+  <img
+    src="./assets/branding/github-banner.png"
+    alt="StateKit Banner"
+    width="100%"
+  />
+</p>
+
+<p align="center">
+  <img
+    src="./assets/branding/logo-light.svg"
+    alt="StateKit"
+    width="220"
+  />
+</p>
+
 <div align="center">
 
-# ⚡ StateKitJS
+# StateKit
 
-### Beautiful UI state components for modern React applications.
+Beautiful UI states for React.
+
+<p>
+  <a href="https://www.npmjs.com/package/@statekitjs/react"><img src="https://img.shields.io/npm/v/@statekitjs/react?style=for-the-badge" alt="npm version" /></a>
+  <img src="https://img.shields.io/github/stars/devsruthi/statekit?style=for-the-badge" alt="GitHub stars" />
+  <img src="https://img.shields.io/github/license/devsruthi/statekit?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+</p>
 
 <p>
 Stop rewriting loading, empty, error, and success UI.
 Build consistent user experiences with one elegant API.
-</p>
-
-<br/>
-
-<p>
-<a href="https://www.npmjs.com/package/@statekitjs/react"><img src="https://img.shields.io/npm/v/@statekitjs/react?style=for-the-badge" /></a>
-<a href="https://www.npmjs.com/package/@statekitjs/react"><img src="https://img.shields.io/npm/dm/@statekitjs/react?style=for-the-badge" /></a>
-<img src="https://img.shields.io/github/license/devsruthi/statekit?style=for-the-badge"/>
-<img src="https://img.shields.io/github/stars/devsruthi/statekit?style=for-the-badge"/>
-<img src="https://img.shields.io/github/issues/devsruthi/statekit?style=for-the-badge"/>
 </p>
 
 </div>
@@ -222,6 +235,7 @@ Coming soon.
 - Live Playground
 - Examples
 - Recipes
+- [Branding assets](./docs/branding.md)
 
 ---
 
