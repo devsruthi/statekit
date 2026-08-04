@@ -1,0 +1,19 @@
+PLACEHOLDER IMAGE  not a binary PNG.
+
+Asset: social-preview.png
+Intended format: PNG
+Recommended dimensions: 1200 × 630 px (approx. 1.91:1)
+Safe content area: keep logo and headline inside 1000 × 480 px centered
+
+Purpose:
+- Open Graph / Twitter card preview
+- Shared link previews for docs, releases, and announcements
+
+Content guidance:
+- Horizontal StateKit logo
+- Tagline: "Beautiful UI states for React."
+- Package cue: @statekitjs/react
+- Background: Light (#F8FAFC) or Dark (#0F172A) with strong contrast
+- Keep composition minimal; avoid dense UI screenshots
+
+Replace this placeholder with the final exported PNG before publishing brand assets.

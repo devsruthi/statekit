@@ -1,0 +1,18 @@
+PLACEHOLDER IMAGE  not a binary PNG.
+
+Asset: github-banner.png
+Intended format: PNG
+Recommended dimensions: 1280 × 640 px (2:1)
+Safe content area: keep key artwork and wordmark inside 1100 × 520 px centered
+
+Purpose:
+- GitHub repository social/header banner
+- Project overview visual for the repo landing page
+
+Content guidance:
+- Horizontal StateKit logo (logo-light.svg recommended on dark background)
+- Tagline: "Beautiful UI states for React."
+- Optional short supporting line about loading / empty / error / success states
+- Background: Dark (#0F172A) with restrained Primary (#4F46E5) ’ Secondary (#7C3AED) accent
+
+Replace this placeholder with the final exported PNG before publishing brand assets.
