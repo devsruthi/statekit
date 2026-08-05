@@ -1,12 +1,14 @@
 import type { ReactNode } from 'react';
 import type { StateLayout } from '../../constants/layout';
 import type {
+  LoaderBackground,
   LoaderColor,
   LoaderSize,
   LoaderSpeed,
   LoaderTheme,
   LoaderType,
 } from '../../constants/loader';
+import type { SurfaceBackground } from '../../utils/resolveSurfaceBackground';
 
 export type StateProps = {
   /**
@@ -62,6 +64,20 @@ export type StateProps = {
    */
   loaderTheme?: LoaderTheme;
   /**
+   * Background for the built-in loading surface (default layout only).
+   * - `"none"` → transparent (default)
+   * - `[color]` → solid
+   * - `[from, to, …]` → linear gradient
+   *
+   * @default "none"
+   */
+  loaderBackground?: LoaderBackground;
+  /**
+   * Opacity for `loaderBackground` when colors are set (0–1).
+   * @default 1
+   */
+  loaderBackgroundOpacity?: number;
+  /**
    * Progress percentage (0–100) for `progress-circle` / `progress-bar`.
    */
   loaderProgress?: number;
@@ -82,14 +98,42 @@ export type StateProps = {
    */
   emptyDescription?: string;
   /**
+   * Background for the built-in empty surface.
+   * - `"none"` → transparent (default)
+   * - `[color]` → solid
+   * - `[from, to, …]` → linear gradient
+   *
+   * @default "none"
+   */
+  emptyBackground?: SurfaceBackground;
+  /**
+   * Opacity for `emptyBackground` when colors are set (0–1).
+   * @default 1
+   */
+  emptyBackgroundOpacity?: number;
+  /**
    * Title shown by the default error UI.
    */
   errorTitle?: string;
   /**
    * Description shown by the default error UI.
-   * When omitted, a message is derived from `error`.
+   * @default "Unable to load the content."
    */
   errorDescription?: string;
+  /**
+   * Background for the built-in error surface.
+   * - `"none"` → transparent (default)
+   * - `[color]` → solid
+   * - `[from, to, …]` → linear gradient
+   *
+   * @default "none"
+   */
+  errorBackground?: SurfaceBackground;
+  /**
+   * Opacity for `errorBackground` when colors are set (0–1).
+   * @default 1
+   */
+  errorBackgroundOpacity?: number;
   /**
    * Replaces the built-in loading UI when provided.
    */

@@ -11,19 +11,19 @@ describe('Error', () => {
     expect(alert).toHaveAttribute('aria-live', 'assertive');
     expect(alert.tagName).toBe('SECTION');
     expect(
-      screen.getByRole('heading', { name: 'Something went wrong' }),
+      screen.getByRole('heading', { name: 'Something went wrong!' }),
     ).toBeInTheDocument();
-    expect(screen.getByText('Network failed')).toBeInTheDocument();
+    expect(screen.getByText('Unable to load the content.')).toBeInTheDocument();
   });
 
-  it('renders string errors', () => {
+  it('renders string errors without changing default copy', () => {
     render(<ErrorView error="Request timed out" />);
-    expect(screen.getByText('Request timed out')).toBeInTheDocument();
+    expect(screen.getByText('Unable to load the content.')).toBeInTheDocument();
   });
 
   it('renders a fallback for unknown errors', () => {
     render(<ErrorView error={{ code: 500 }} />);
-    expect(screen.getByText('Something went wrong.')).toBeInTheDocument();
+    expect(screen.getByText('Unable to load the content.')).toBeInTheDocument();
   });
 
   it('supports a custom title and description', () => {
@@ -54,5 +54,41 @@ describe('Error', () => {
 
     await user.click(screen.getByRole('button', { name: 'Try again' }));
     expect(onRetry).toHaveBeenCalledTimes(1);
+  });
+
+  it('supports solid and gradient backgrounds with opacity', () => {
+    const { rerender } = render(<ErrorView error="Failed" />);
+    expect(screen.getByRole('alert')).toHaveAttribute(
+      'data-error-background',
+      'none',
+    );
+
+    rerender(
+      <ErrorView
+        error="Failed"
+        background={['#EF4444']}
+        backgroundOpacity={0.2}
+      />,
+    );
+    expect(screen.getByRole('alert')).toHaveAttribute(
+      'data-error-background',
+      'solid',
+    );
+    expect(screen.getByRole('alert').style.background).toContain('color-mix');
+
+    rerender(
+      <ErrorView
+        error="Failed"
+        background={['#EF4444', '#F59E0B']}
+        backgroundOpacity={0.3}
+      />,
+    );
+    expect(screen.getByRole('alert')).toHaveAttribute(
+      'data-error-background',
+      'gradient',
+    );
+    expect(screen.getByRole('alert').style.background).toContain(
+      'linear-gradient',
+    );
   });
 });

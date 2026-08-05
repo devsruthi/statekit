@@ -11,13 +11,12 @@ describe('Loading', () => {
     expect(status).toHaveAttribute('data-loader-type', 'spinner');
     expect(status).toHaveAttribute('data-loader-size', 'lg');
     expect(status).toHaveAttribute('data-loader-color', 'solid');
+    expect(status).toHaveAttribute('data-loader-background', 'none');
     expect(status.tagName).toBe('SECTION');
     expect(
-      screen.getByRole('heading', { name: 'Loading' }),
+      screen.getByRole('heading', { name: 'Loading...' }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText('Please wait while content loads.'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Please wait a moment')).toBeInTheDocument();
     expect(container.querySelector('[data-loader="spinner"]')).not.toBeNull();
   });
 
@@ -91,5 +90,38 @@ describe('Loading', () => {
     const { container } = render(<Loading />);
     const media = container.querySelector('[aria-hidden="true"]');
     expect(media).not.toBeNull();
+  });
+
+  it('defaults to no background and paints solid or gradient fills', () => {
+    const { rerender } = render(<Loading />);
+    let status = screen.getByRole('status');
+    expect(status).toHaveAttribute('data-loader-background', 'none');
+    expect(status).toHaveStyle({ background: 'transparent' });
+
+    rerender(<Loading background={['#4F46E5']} backgroundOpacity={0.2} />);
+    status = screen.getByRole('status');
+    expect(status).toHaveAttribute('data-loader-background', 'solid');
+    expect(status.style.background).toContain('color-mix');
+    expect(status.style.background).toMatch(/#4F46E5|rgb\(79,\s*70,\s*229\)/i);
+    expect(status.style.getPropertyValue('--sk-color-fg')).toBe('');
+
+    rerender(
+      <Loading background={['#7C3AED', '#06B6D4']} backgroundOpacity={0.35} />,
+    );
+    status = screen.getByRole('status');
+    expect(status).toHaveAttribute('data-loader-background', 'gradient');
+    expect(status.style.background).toContain('linear-gradient');
+    expect(status.style.background).toMatch(/#7C3AED|rgb\(124,\s*58,\s*237\)/i);
+    expect(status.style.background).toMatch(/#06B6D4|rgb\(6,\s*182,\s*212\)/i);
+  });
+
+  it('uses light copy colors when background opacity is above 60%', () => {
+    render(<Loading background={['#4F46E5']} backgroundOpacity={0.61} />);
+
+    const status = screen.getByRole('status');
+    expect(status.style.getPropertyValue('--sk-color-fg')).toBe('#F8FAFC');
+    expect(status.style.getPropertyValue('--sk-color-fg-muted')).toContain(
+      '248',
+    );
   });
 });

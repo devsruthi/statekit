@@ -7,6 +7,7 @@ import {
 } from '../components/skeletons';
 import { STATE_LAYOUT, type StateLayout } from '../constants/layout';
 import type {
+  LoaderBackground,
   LoaderColor,
   LoaderSize,
   LoaderSpeed,
@@ -22,6 +23,8 @@ export type RenderLoadingOptions = {
   color?: LoaderColor;
   speed?: LoaderSpeed;
   theme?: LoaderTheme;
+  background?: LoaderBackground;
+  backgroundOpacity?: number;
   progress?: number;
 };
 
@@ -38,6 +41,8 @@ export function renderLoading(
     color,
     speed,
     theme,
+    background,
+    backgroundOpacity,
     progress,
   }: RenderLoadingOptions = {},
 ): ReactElement {
@@ -58,6 +63,8 @@ export function renderLoading(
         color,
         speed,
         theme,
+        background,
+        backgroundOpacity,
         progress,
       });
   }

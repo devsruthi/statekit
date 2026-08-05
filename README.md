@@ -136,13 +136,19 @@ Priority when multiple flags are set: **loading → error → empty → children
 | `loaderColor` | `[color]` or `[from, to, …]` | `["#4F46E5"]` | Color array: 1 = solid, 2+ = gradient. |
 | `loaderSpeed` | `"slow" \| "normal" \| "fast"` | `"normal"` | Loader animation speed. |
 | `loaderTheme` | `"light" \| "dark" \| "auto"` | `"auto"` | Theme for the built-in loading surface. |
+| `loaderBackground` | `"none" \| [color] \| [from, to, …]` | `"none"` | Loading surface background. One color = solid, 2+ = gradient. |
+| `loaderBackgroundOpacity` | `number` (0–1) | `1` | Opacity applied to `loaderBackground`. |
 | `loaderProgress` | `number` | — | Progress 0–100 for `progress-circle` / `progress-bar`. |
-| `loadingTitle` | `string` | `"Loading"` | Title for the default loading UI. |
-| `loadingDescription` | `string` | `"Please wait while content loads."` | Description for the default loading UI. |
-| `emptyTitle` | `string` | `"No data"` | Title for the default empty UI. |
-| `emptyDescription` | `string` | `"There is nothing to display yet."` | Description for the default empty UI. |
-| `errorTitle` | `string` | `"Something went wrong"` | Title for the default error UI. |
-| `errorDescription` | `string` | derived from `error` | Description for the default error UI. |
+| `loadingTitle` | `string` | `"Loading..."` | Title for the default loading UI. |
+| `loadingDescription` | `string` | `"Please wait a moment"` | Description for the default loading UI. |
+| `emptyTitle` | `string` | `"No records found"` | Title for the default empty UI. |
+| `emptyDescription` | `string` | `"There are no records to display."` | Description for the default empty UI. |
+| `emptyBackground` | `"none" \| [color] \| [from, to, …]` | `"none"` | Empty surface background. One color = solid, 2+ = gradient. |
+| `emptyBackgroundOpacity` | `number` (0–1) | `1` | Opacity applied to `emptyBackground`. |
+| `errorTitle` | `string` | `"Something went wrong!"` | Title for the default error UI. |
+| `errorDescription` | `string` | `"Unable to load the content."` | Description for the default error UI. |
+| `errorBackground` | `"none" \| [color] \| [from, to, …]` | `"none"` | Error surface background. One color = solid, 2+ = gradient. |
+| `errorBackgroundOpacity` | `number` (0–1) | `1` | Opacity applied to `errorBackground`. |
 | `loadingComponent` | `ReactNode` | — | Replaces the built-in loading UI. |
 | `emptyComponent` | `ReactNode` | — | Replaces the built-in empty UI. |
 | `errorComponent` | `ReactNode` | — | Replaces the built-in error UI. |
@@ -263,17 +269,6 @@ pnpm install
 pnpm dev
 ```
 
-
-# Documentation
-
-Coming soon.
-
-- API Documentation
-- Storybook
-- Live Playground
-- Examples
-- Recipes
-- [Branding assets](./docs/branding.md)
 
 
 # Built With

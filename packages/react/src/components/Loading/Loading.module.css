@@ -1,11 +1,16 @@
 .root {
   --sk-loading-accent: #4f46e5;
-  --sk-loading-soft: color-mix(in srgb, #4f46e5 16%, transparent);
   --sk-loader-size: 4.75rem;
   --sk-loader-duration: 0.9s;
   --sk-loader-stroke: 0.3rem;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  flex: 1 1 auto;
+  align-self: stretch;
   border: none;
-  background: transparent;
+  /* Inline `style.background` from props overrides surface elevated fill. */
   box-shadow: none;
 }
 

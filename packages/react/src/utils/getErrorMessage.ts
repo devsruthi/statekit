@@ -10,5 +10,5 @@ export function getErrorMessage(error: unknown): string {
     return error;
   }
 
-  return 'Something went wrong.';
+  return 'Unable to load the content.';
 }

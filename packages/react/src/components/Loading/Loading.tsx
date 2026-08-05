@@ -4,6 +4,7 @@ import {
   LOADER_SIZE,
   LOADER_SPEED,
   LOADER_THEME,
+  type LoaderBackground,
   type LoaderColor,
   type LoaderSize,
   type LoaderSpeed,
@@ -12,6 +13,7 @@ import {
 } from '../../constants/loader';
 import surface from '../../styles/surface.module.css';
 import { cx } from '../../utils/cx';
+import { resolveSurfaceBackground } from '../../utils/resolveSurfaceBackground';
 import { LoaderGraphic } from './LoaderGraphic';
 import styles from './Loading.module.css';
 
@@ -44,13 +46,26 @@ export type LoadingProps = {
    */
   theme?: LoaderTheme;
   /**
+   * Surface background behind the loader.
+   * - `"none"` → transparent (default)
+   * - `[color]` → solid
+   * - `[from, to, …]` → linear gradient
+   * @default "none"
+   */
+  background?: LoaderBackground;
+  /**
+   * Opacity for `background` when colors are set (0–1).
+   * @default 1
+   */
+  backgroundOpacity?: number;
+  /**
    * Primary label (also accepted as `title` for backwards compatibility).
-   * @default "Loading"
+   * @default "Loading..."
    */
   text?: string;
   /**
    * Secondary label (also accepted as `description`).
-   * @default "Please wait while content loads."
+   * @default "Please wait a moment"
    */
   subtext?: string;
   /**
@@ -91,6 +106,8 @@ export function Loading({
   color = LOADER_DEFAULTS.color,
   speed = LOADER_DEFAULTS.speed,
   theme = LOADER_DEFAULTS.theme,
+  background = LOADER_DEFAULTS.background,
+  backgroundOpacity = LOADER_DEFAULTS.backgroundOpacity,
   text,
   subtext,
   title,
@@ -105,6 +122,8 @@ export function Loading({
       : theme === LOADER_THEME.dark
         ? 'dark'
         : 'light';
+  const { mode: backgroundMode, style: backgroundStyle } =
+    resolveSurfaceBackground(background, backgroundOpacity);
 
   return (
     <section
@@ -114,12 +133,14 @@ export function Loading({
         SIZE_CLASS[size],
         SPEED_CLASS[speed],
       )}
+      style={backgroundStyle}
       data-statekit=""
       data-statekit-theme={themeAttr}
       data-loader-type={type}
       data-loader-size={size}
       data-loader-color={color.length > 1 ? 'gradient' : 'solid'}
       data-loader-speed={speed}
+      data-loader-background={backgroundMode}
       role="status"
       aria-live="polite"
       aria-busy="true"
