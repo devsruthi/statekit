@@ -1,14 +1,33 @@
-import { defineConfig } from 'vitest/config';
-import react from '@vitejs/plugin-react';
+import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
+import { defineConfig, type Plugin } from 'vitest/config';
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
 const isStorybook = process.argv.some((arg) => arg.includes('storybook'));
 
+/** Import `.svg` files as raw markup strings (matches tsup text loader). */
+function svgAsRawPlugin(): Plugin {
+  return {
+    name: 'statekit-svg-as-raw',
+    enforce: 'pre',
+    load(id) {
+      const file = id.split('?')[0] ?? id;
+      if (!file.endsWith('.svg')) {
+        return null;
+      }
+
+      const svg = readFileSync(file, 'utf8');
+      return `export default ${JSON.stringify(svg)};`;
+    },
+  };
+}
+
 export default defineConfig({
   plugins: [
+    svgAsRawPlugin(),
     react(),
     !isStorybook &&
       dts({
