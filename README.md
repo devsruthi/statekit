@@ -2,7 +2,7 @@
 <p align="center">
   <img
     src="./assets/branding/github-banner.png"
-    alt="StateKit"
+    alt="StateKitJS"
     width="720"
   />
 </p>

@@ -11,7 +11,7 @@ All paths below are repository-relative.
 ### `github-banner.svg` / `github-banner.png`
 
 **Path:** `./assets/branding/github-banner.png` (README) · `./assets/branding/github-banner.svg` (alternate)  
-**Size:** 880 × 520
+**Size:** 1024 × 682
 
 **Use for:**
 
@@ -19,7 +19,7 @@ All paths below are repository-relative.
 - Top of the root `README.md`
 - Repo-level marketing visuals
 
-**Artwork:** Centered StateKit mark + wordmark (`State` dark, `Kit` in brand gradient) on a light background.
+**Artwork:** Centered StateKit mark + `StateKitJS` wordmark on a light background.
 
 **Do not use for:**
 
