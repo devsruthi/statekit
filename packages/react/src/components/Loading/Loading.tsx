@@ -60,12 +60,12 @@ export type LoadingProps = {
   backgroundOpacity?: number;
   /**
    * Primary label (also accepted as `title` for backwards compatibility).
-   * @default "Loading"
+   * @default "Loading..."
    */
   text?: string;
   /**
    * Secondary label (also accepted as `description`).
-   * @default "Please wait while content loads."
+   * @default "Please wait a moment"
    */
   subtext?: string;
   /**

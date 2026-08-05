@@ -46,7 +46,7 @@ describe('State layout prop', () => {
     );
 
     expect(
-      screen.getByRole('heading', { name: 'Loading' }),
+      screen.getByRole('heading', { name: 'Loading...' }),
     ).toBeInTheDocument();
     expect(screen.queryByText('Loading table')).not.toBeInTheDocument();
   });

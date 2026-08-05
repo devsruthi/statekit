@@ -104,6 +104,6 @@ export const LOADER_DEFAULTS = {
   theme: LOADER_THEME.auto,
   background: SURFACE_BACKGROUND_DEFAULTS.background,
   backgroundOpacity: SURFACE_BACKGROUND_DEFAULTS.backgroundOpacity,
-  text: 'Loading',
-  subtext: 'Please wait while content loads.',
+  text: 'Loading...',
+  subtext: 'Please wait a moment',
 } as const;

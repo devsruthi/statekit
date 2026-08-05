@@ -80,7 +80,7 @@ describe('State customization', () => {
     expect(screen.getByText('Custom spinner')).toBeInTheDocument();
     expect(screen.queryByText('Ignored')).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('heading', { name: 'Loading' }),
+      screen.queryByRole('heading', { name: 'Loading...' }),
     ).not.toBeInTheDocument();
   });
 

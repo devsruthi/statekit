@@ -345,8 +345,7 @@ export function App() {
                   <span className="custom-error__mark">!</span>
                 </div>
                 <div className="custom-error__copy">
-                  <p className="custom-error__eyebrow">errorComponent</p>
-                  <h2>Couldn’t load users</h2>
+                  <h2>Oops!</h2>
                   <p>
                     This is a user-created component passed via errorComponent.
                     Something went wrong while fetching data.

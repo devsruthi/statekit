@@ -139,8 +139,8 @@ Priority when multiple flags are set: **loading → error → empty → children
 | `loaderBackground` | `"none" \| [color] \| [from, to, …]` | `"none"` | Loading surface background. One color = solid, 2+ = gradient. |
 | `loaderBackgroundOpacity` | `number` (0–1) | `1` | Opacity applied to `loaderBackground`. |
 | `loaderProgress` | `number` | — | Progress 0–100 for `progress-circle` / `progress-bar`. |
-| `loadingTitle` | `string` | `"Loading"` | Title for the default loading UI. |
-| `loadingDescription` | `string` | `"Please wait while content loads."` | Description for the default loading UI. |
+| `loadingTitle` | `string` | `"Loading..."` | Title for the default loading UI. |
+| `loadingDescription` | `string` | `"Please wait a moment"` | Description for the default loading UI. |
 | `emptyTitle` | `string` | `"No records found"` | Title for the default empty UI. |
 | `emptyDescription` | `string` | `"There are no records to display."` | Description for the default empty UI. |
 | `emptyBackground` | `"none" \| [color] \| [from, to, …]` | `"none"` | Empty surface background. One color = solid, 2+ = gradient. |

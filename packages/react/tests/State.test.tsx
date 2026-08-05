@@ -21,7 +21,7 @@ describe('State', () => {
     );
 
     expect(screen.getByRole('status', { busy: true })).toBeInTheDocument();
-    expect(screen.getByText('Loading')).toBeInTheDocument();
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
     expect(screen.queryByText('Users table')).not.toBeInTheDocument();
   });
 
@@ -82,7 +82,7 @@ describe('State', () => {
       </State>,
     );
 
-    expect(screen.getByText('Loading')).toBeInTheDocument();
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
     expect(screen.queryByText('No records found')).not.toBeInTheDocument();
     expect(screen.queryByText('Users table')).not.toBeInTheDocument();

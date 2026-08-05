@@ -20,6 +20,13 @@ export const SURFACE_BACKGROUND_DEFAULTS = {
   backgroundOpacity: 1,
 } as const;
 
+/** Switch title/description to light text above this opacity. */
+export const SURFACE_LIGHT_COPY_OPACITY = 0.75;
+
+/** Soft white for copy on strong colored backgrounds. */
+const LIGHT_COPY_FG = '#F8FAFC';
+const LIGHT_COPY_MUTED = 'rgb(248 250 252 / 78%)';
+
 function clampOpacity(value: number): number {
   if (Number.isNaN(value)) {
     return SURFACE_BACKGROUND_DEFAULTS.backgroundOpacity;
@@ -36,6 +43,8 @@ function withOpacity(color: string, opacity: number): string {
 /**
  * Resolves a surface background into an inline style that overrides
  * the shared `.surface` elevated fill.
+ * When opacity is above 60% with a colored background, title/description
+ * tokens flip to a light soft-white for contrast.
  */
 export function resolveSurfaceBackground(
   background: SurfaceBackground = SURFACE_BACKGROUND_DEFAULTS.background,
@@ -52,16 +61,26 @@ export function resolveSurfaceBackground(
   }
 
   const colors = background;
+  const clamped = clampOpacity(opacity);
   const mode = colors.length > 1 ? 'gradient' : 'solid';
   const fill =
     mode === 'solid'
-      ? withOpacity(colors[0]!, opacity)
+      ? withOpacity(colors[0]!, clamped)
       : `linear-gradient(135deg, ${colors
-          .map((color) => withOpacity(color, opacity))
+          .map((color) => withOpacity(color, clamped))
           .join(', ')})`;
+
+  const style: CSSProperties = { background: fill };
+
+  if (clamped > SURFACE_LIGHT_COPY_OPACITY) {
+    Object.assign(style, {
+      '--sk-color-fg': LIGHT_COPY_FG,
+      '--sk-color-fg-muted': LIGHT_COPY_MUTED,
+    });
+  }
 
   return {
     mode,
-    style: { background: fill },
+    style,
   };
 }

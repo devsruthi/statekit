@@ -68,29 +68,9 @@ export function Error({
       aria-live="assertive"
     >
       <div className={cx(surface.media, styles.media)} aria-hidden="true">
-        <svg
-          className={styles.icon}
-          viewBox="0 0 24 24"
-          width="20"
-          height="20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          focusable="false"
-        >
-          <path
-            d="M12 8v5"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <circle cx="12" cy="16.5" r="1" fill="currentColor" />
-          <path
-            d="M12 3.75 20.25 19.5H3.75L12 3.75Z"
-            stroke="currentColor"
-            strokeWidth="1.75"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <span className={styles.badge}>
+          <span className={styles.mark}>!</span>
+        </span>
       </div>
       <div className={surface.copy}>
         <h2 className={surface.title}>{title}</h2>
