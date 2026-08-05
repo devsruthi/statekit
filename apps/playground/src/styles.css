@@ -80,6 +80,11 @@ body {
   font: inherit;
 }
 
+.controls input[type='range'] {
+  width: 10rem;
+  accent-color: #4f46e5;
+}
+
 .control-toggle {
   flex-direction: row;
   align-items: center;
@@ -99,11 +104,18 @@ body {
 }
 
 .stage {
+  display: flex;
+  flex-direction: column;
   min-height: 22rem;
   padding: 1rem;
   border: 1px dashed #cbd5e1;
   border-radius: 1rem;
   background: #fff;
+}
+
+.stage > * {
+  flex: 1 1 auto;
+  min-height: 100%;
 }
 
 .users {

@@ -1,3 +1,9 @@
+import type {
+  SurfaceBackground,
+  SurfaceColor,
+} from '../utils/resolveSurfaceBackground';
+import { SURFACE_BACKGROUND_DEFAULTS } from '../utils/resolveSurfaceBackground';
+
 /**
  * Built-in loader visual variants.
  */
@@ -49,7 +55,7 @@ export type LoaderSize = (typeof LOADER_SIZE)[keyof typeof LOADER_SIZE];
  * - 1 color → solid fill
  * - 2+ colors → gradient (from → to; extras used as accents where applicable)
  */
-export type LoaderColor = readonly [string, ...string[]];
+export type LoaderColor = SurfaceColor;
 
 /**
  * Animation speed presets.
@@ -73,6 +79,14 @@ export const LOADER_THEME = {
 
 export type LoaderTheme = (typeof LOADER_THEME)[keyof typeof LOADER_THEME];
 
+/**
+ * Loading surface background.
+ * - `"none"` → transparent (default)
+ * - `[color]` → solid background
+ * - `[from, to, …]` → linear gradient
+ */
+export type LoaderBackground = SurfaceBackground;
+
 /** Default solid brand indigo. */
 export const LOADER_COLOR_PRIMARY = ['#4F46E5'] as const satisfies LoaderColor;
 
@@ -88,6 +102,8 @@ export const LOADER_DEFAULTS = {
   color: LOADER_COLOR_PRIMARY,
   speed: LOADER_SPEED.normal,
   theme: LOADER_THEME.auto,
+  background: SURFACE_BACKGROUND_DEFAULTS.background,
+  backgroundOpacity: SURFACE_BACKGROUND_DEFAULTS.backgroundOpacity,
   text: 'Loading',
   subtext: 'Please wait while content loads.',
 } as const;

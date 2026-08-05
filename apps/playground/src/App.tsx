@@ -4,6 +4,7 @@ import {
   LOADER_COLOR_PRIMARY,
   LOADER_TYPE,
   State,
+  type LoaderBackground,
   type LoaderColor,
   type LoaderSize,
   type LoaderType,
@@ -15,6 +16,25 @@ type DemoMode = 'loading' | 'empty' | 'error' | 'success';
 const LOADING_LAYOUTS: StateLayout[] = ['default', 'table', 'grid', 'list'];
 const LOADER_TYPES = Object.values(LOADER_TYPE);
 const LOADER_SIZES: LoaderSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+
+const BACKGROUND_OPTIONS: {
+  id: string;
+  label: string;
+  value: LoaderBackground;
+}[] = [
+  { id: 'none', label: 'none (default)', value: 'none' },
+  { id: 'solid', label: 'solid [#4F46E5]', value: LOADER_COLOR_PRIMARY },
+  {
+    id: 'gradient',
+    label: 'gradient [#7C3AED → #2563EB]',
+    value: LOADER_COLOR_GRADIENT,
+  },
+  {
+    id: 'cyan',
+    label: 'solid [#06B6D4]',
+    value: ['#06B6D4'],
+  },
+];
 
 const COLOR_OPTIONS = [
   { id: 'solid', label: 'solid [#4F46E5]', value: LOADER_COLOR_PRIMARY },
@@ -47,6 +67,8 @@ export function App() {
   const [useCustomComponent, setUseCustomComponent] = useState(false);
   const [loaderType, setLoaderType] = useState<LoaderType>('spinner');
   const [loaderSize, setLoaderSize] = useState<LoaderSize>('lg');
+  const [backgroundId, setBackgroundId] = useState('none');
+  const [backgroundOpacity, setBackgroundOpacity] = useState(0.16);
   const [colorId, setColorId] =
     useState<(typeof COLOR_OPTIONS)[number]['id']>('solid');
 
@@ -58,6 +80,17 @@ export function App() {
   const showLoaderControls =
     mode === 'loading' && !useCustomComponent && layout === 'default';
   const showCustomToggle = mode !== 'success';
+  const showSurfaceBackground =
+    !useCustomComponent &&
+    (mode === 'empty' ||
+      mode === 'error' ||
+      (mode === 'loading' && layout === 'default'));
+  const showBackgroundOpacity =
+    showSurfaceBackground && backgroundId !== 'none';
+
+  const surfaceBackground =
+    BACKGROUND_OPTIONS.find((option) => option.id === backgroundId)?.value ??
+    'none';
 
   const stateProps = useMemo(
     () => ({
@@ -68,13 +101,27 @@ export function App() {
       loaderType,
       loaderSize,
       loaderColor,
+      loaderBackground: mode === 'loading' ? surfaceBackground : 'none',
+      loaderBackgroundOpacity: backgroundOpacity,
+      emptyBackground: mode === 'empty' ? surfaceBackground : 'none',
+      emptyBackgroundOpacity: backgroundOpacity,
+      errorBackground: mode === 'error' ? surfaceBackground : 'none',
+      errorBackgroundOpacity: backgroundOpacity,
       loaderProgress:
         loaderType === 'progress-circle' || loaderType === 'progress-bar'
           ? 72
           : undefined,
       onRetry: () => setMode('loading'),
     }),
-    [layout, loaderColor, loaderSize, loaderType, mode],
+    [
+      backgroundOpacity,
+      layout,
+      loaderColor,
+      loaderSize,
+      loaderType,
+      mode,
+      surfaceBackground,
+    ],
   );
 
   const customToggleLabel =
@@ -181,6 +228,40 @@ export function App() {
                 ))}
               </select>
             </label>
+          </>
+        ) : null}
+
+        {showSurfaceBackground ? (
+          <>
+            <label>
+              Background
+              <select
+                value={backgroundId}
+                onChange={(event) => setBackgroundId(event.target.value)}
+              >
+                {BACKGROUND_OPTIONS.map((option) => (
+                  <option key={option.id} value={option.id}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            {showBackgroundOpacity ? (
+              <label>
+                Bg opacity ({Math.round(backgroundOpacity * 100)}%)
+                <input
+                  type="range"
+                  min={0}
+                  max={1}
+                  step={0.01}
+                  value={backgroundOpacity}
+                  onChange={(event) =>
+                    setBackgroundOpacity(Number(event.target.value))
+                  }
+                />
+              </label>
+            ) : null}
           </>
         ) : null}
 

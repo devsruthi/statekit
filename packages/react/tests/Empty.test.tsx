@@ -10,10 +10,10 @@ describe('Empty', () => {
     expect(status).toHaveAttribute('aria-live', 'polite');
     expect(status.tagName).toBe('SECTION');
     expect(
-      screen.getByRole('heading', { name: 'No data' }),
+      screen.getByRole('heading', { name: 'No records found' }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText('There is nothing to display yet.'),
+      screen.getByText('There are no records to display.'),
     ).toBeInTheDocument();
   });
 
@@ -37,5 +37,31 @@ describe('Empty', () => {
     const { container } = render(<Empty />);
     const media = container.querySelector('[aria-hidden="true"]');
     expect(media).not.toBeNull();
+  });
+
+  it('supports solid and gradient backgrounds with opacity', () => {
+    const { rerender } = render(<Empty />);
+    expect(screen.getByRole('status')).toHaveAttribute(
+      'data-empty-background',
+      'none',
+    );
+
+    rerender(<Empty background={['#3558A0']} backgroundOpacity={0.2} />);
+    expect(screen.getByRole('status')).toHaveAttribute(
+      'data-empty-background',
+      'solid',
+    );
+    expect(screen.getByRole('status').style.background).toContain('color-mix');
+
+    rerender(
+      <Empty background={['#3558A0', '#06B6D4']} backgroundOpacity={0.3} />,
+    );
+    expect(screen.getByRole('status')).toHaveAttribute(
+      'data-empty-background',
+      'gradient',
+    );
+    expect(screen.getByRole('status').style.background).toContain(
+      'linear-gradient',
+    );
   });
 });

@@ -107,7 +107,7 @@ describe('State customization', () => {
     );
 
     expect(screen.getByText('Nothing here')).toBeInTheDocument();
-    expect(screen.queryByText('No data')).not.toBeInTheDocument();
+    expect(screen.queryByText('No records found')).not.toBeInTheDocument();
   });
 
   it('uses a custom error component instead of the default UI', () => {

@@ -33,28 +33,31 @@ describe('State', () => {
     );
 
     expect(screen.getByRole('alert')).toBeInTheDocument();
-    expect(screen.getByText('Network failed')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Something went wrong!' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText('Unable to load the content.')).toBeInTheDocument();
     expect(screen.queryByText('Users table')).not.toBeInTheDocument();
   });
 
-  it('renders a string error message', () => {
+  it('renders a string error with default copy', () => {
     render(
       <State error="Request timed out">
         <div>Users table</div>
       </State>,
     );
 
-    expect(screen.getByText('Request timed out')).toBeInTheDocument();
+    expect(screen.getByText('Unable to load the content.')).toBeInTheDocument();
   });
 
-  it('renders a fallback error message for unknown values', () => {
+  it('renders default error copy for unknown values', () => {
     render(
       <State error={{ code: 500 }}>
         <div>Users table</div>
       </State>,
     );
 
-    expect(screen.getByText('Something went wrong.')).toBeInTheDocument();
+    expect(screen.getByText('Unable to load the content.')).toBeInTheDocument();
   });
 
   it('renders the empty state when empty is true', () => {
@@ -65,7 +68,10 @@ describe('State', () => {
     );
 
     expect(screen.getByRole('status')).toBeInTheDocument();
-    expect(screen.getByText('No data')).toBeInTheDocument();
+    expect(screen.getByText('No records found')).toBeInTheDocument();
+    expect(
+      screen.getByText('There are no records to display.'),
+    ).toBeInTheDocument();
     expect(screen.queryByText('Users table')).not.toBeInTheDocument();
   });
 
@@ -78,7 +84,7 @@ describe('State', () => {
 
     expect(screen.getByText('Loading')).toBeInTheDocument();
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
-    expect(screen.queryByText('No data')).not.toBeInTheDocument();
+    expect(screen.queryByText('No records found')).not.toBeInTheDocument();
     expect(screen.queryByText('Users table')).not.toBeInTheDocument();
   });
 
@@ -90,8 +96,8 @@ describe('State', () => {
     );
 
     expect(screen.getByRole('alert')).toBeInTheDocument();
-    expect(screen.getByText('boom')).toBeInTheDocument();
-    expect(screen.queryByText('No data')).not.toBeInTheDocument();
+    expect(screen.getByText('Unable to load the content.')).toBeInTheDocument();
+    expect(screen.queryByText('No records found')).not.toBeInTheDocument();
   });
 
   it('returns null when there is no active state and no children', () => {
