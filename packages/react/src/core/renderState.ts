@@ -7,6 +7,13 @@ import {
 import { Empty } from '../components/Empty';
 import { Error as ErrorView } from '../components/Error';
 import { STATE_LAYOUT, type StateLayout } from '../constants/layout';
+import type {
+  LoaderColor,
+  LoaderSize,
+  LoaderSpeed,
+  LoaderTheme,
+  LoaderType,
+} from '../constants/loader';
 import { STATE_KIND } from '../constants/priority';
 import { renderLoading } from './renderLoading';
 import type { ResolvedState } from './resolveState';
@@ -14,6 +21,12 @@ import type { ResolvedState } from './resolveState';
 export type RenderStateOptions = {
   children?: ReactNode;
   layout?: StateLayout;
+  loaderType?: LoaderType;
+  loaderSize?: LoaderSize;
+  loaderColor?: LoaderColor;
+  loaderSpeed?: LoaderSpeed;
+  loaderTheme?: LoaderTheme;
+  loaderProgress?: number;
   loadingTitle?: string;
   loadingDescription?: string;
   emptyTitle?: string;
@@ -38,6 +51,12 @@ export function renderState(
   {
     children,
     layout = STATE_LAYOUT.default,
+    loaderType,
+    loaderSize,
+    loaderColor,
+    loaderSpeed,
+    loaderTheme,
+    loaderProgress,
     loadingTitle,
     loadingDescription,
     emptyTitle,
@@ -59,6 +78,12 @@ export function renderState(
       return renderLoading(layout, {
         title: loadingTitle,
         description: loadingDescription,
+        type: loaderType,
+        size: loaderSize,
+        color: loaderColor,
+        speed: loaderSpeed,
+        theme: loaderTheme,
+        progress: loaderProgress,
       });
 
     case STATE_KIND.error:
