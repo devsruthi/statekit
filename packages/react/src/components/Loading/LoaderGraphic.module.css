@@ -99,13 +99,16 @@
   align-items: flex-end;
   justify-content: center;
   gap: calc(var(--sk-loader-size) * 0.1);
-  height: 55%;
-  width: 78%;
+  width: var(--sk-loader-size, 2.75rem);
+  height: var(--sk-loader-size, 2.75rem);
+  padding-block: 18% 8%;
+  box-sizing: border-box;
 }
 
 .type_bars .bar {
   flex: 1;
-  height: 40%;
+  min-height: 28%;
+  height: 45%;
   border-radius: 999px;
   background: linear-gradient(
     180deg,
