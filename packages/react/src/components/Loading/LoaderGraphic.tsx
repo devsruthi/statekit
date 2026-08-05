@@ -21,7 +21,6 @@ const TYPE_CLASS: Record<LoaderType, string> = {
   [LOADER_TYPE.infinity]: styles.type_infinity!,
   [LOADER_TYPE.ring]: styles.type_ring!,
   [LOADER_TYPE.orbit]: styles.type_orbit!,
-  [LOADER_TYPE.wave]: styles.type_wave!,
   [LOADER_TYPE.progressCircle]: styles.type_progress_circle!,
   [LOADER_TYPE.progressBar]: styles.type_progress_bar!,
 };
@@ -134,15 +133,6 @@ export function LoaderGraphic({
           <span className={styles.orbitCore} />
           <span className={styles.orbitPath} />
           <span className={styles.orbitDot} />
-        </span>
-      );
-
-    case LOADER_TYPE.wave:
-      return (
-        <span className={graphicClass} style={style} data-loader={type}>
-          <span className={styles.waveLine} />
-          <span className={styles.waveLine} />
-          <span className={styles.waveLine} />
         </span>
       );
 

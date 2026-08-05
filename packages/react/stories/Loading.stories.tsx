@@ -66,10 +66,6 @@ export const Orbit: Story = {
   args: { type: LOADER_TYPE.orbit },
 };
 
-export const Wave: Story = {
-  args: { type: LOADER_TYPE.wave, color: LOADER_COLOR_GRADIENT },
-};
-
 export const ProgressCircle: Story = {
   args: {
     type: LOADER_TYPE.progressCircle,

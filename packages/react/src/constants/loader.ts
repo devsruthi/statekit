@@ -9,7 +9,6 @@ export const LOADER_TYPE = {
   infinity: 'infinity',
   ring: 'ring',
   orbit: 'orbit',
-  wave: 'wave',
   progressCircle: 'progress-circle',
   progressBar: 'progress-bar',
 } as const;
