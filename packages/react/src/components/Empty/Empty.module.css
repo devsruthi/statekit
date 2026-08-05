@@ -7,7 +7,7 @@
 }
 
 .media {
-  background: transparent;
+  background: var(--sk-empty-soft);
   color: var(--sk-empty-accent);
 }
 
