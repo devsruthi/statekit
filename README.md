@@ -264,17 +264,6 @@ pnpm dev
 ```
 
 
-# Documentation
-
-Coming soon.
-
-- API Documentation
-- Storybook
-- Live Playground
-- Examples
-- Recipes
-- [Branding assets](./docs/branding.md)
-
 
 # Built With
 
