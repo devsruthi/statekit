@@ -15,7 +15,7 @@ Do **not** use this folder for React package implementation files.
 | `logo.svg` | Primary horizontal logo + tagline (`React` in accent cyan) |
 | `logo-light.svg` | Horizontal logo for **light** backgrounds (dark wordmark) |
 | `logo-dark.svg` | Horizontal logo for **dark** backgrounds (light wordmark) |
-| `mark.svg` | Icon-only S mark on a dark rounded tile |
+| `mark.svg` / `mark.png` | Icon-only segmented S mark (transparent / white) |
 | `favicon.svg` | Compact S mark on a light rounded tile |
 | `github-banner.svg` / `.png` | README banner (`960×320`, light centered lockup; SVG preferred) |
 | `social-preview.png` | Social share preview card (`1024×537`, logo + state icons) |
@@ -28,7 +28,7 @@ Do **not** use this folder for React package implementation files.
             Beautiful UI states for React.
 ```
 
-- **Mark:** rounded S stroke (Secondary → Primary gradient) + Accent cyan status dot
+- **Mark:** segmented S (Secondary → Primary gradient) + Accent cyan status dot
 - **Wordmark:** Inter Bold, `StateKit`
 - **Tagline:** Inter Medium; `React` uses Accent `#06B6D4`
 
