@@ -67,7 +67,18 @@ export function App() {
       </div>
 
       <main className="stage">
-        <State {...stateProps}>
+        <State
+          {...stateProps}
+          emptyComponent={
+            <div className="custom-empty">
+              <h2>No users yet</h2>
+              <p>Add someone to get started — this is a custom emptyComponent.</p>
+              <button type="button" onClick={() => setMode('success')}>
+                Show sample users
+              </button>
+            </div>
+          }
+        >
           <ul className="users">
             {USERS.map((user) => (
               <li key={user.id}>

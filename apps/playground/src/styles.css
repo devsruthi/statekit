@@ -109,3 +109,41 @@ body {
 .users span {
   color: #64748b;
 }
+
+.custom-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 14rem;
+  text-align: center;
+}
+
+.custom-empty h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.custom-empty p {
+  margin: 0;
+  max-width: 28rem;
+  color: #64748b;
+}
+
+.custom-empty button {
+  margin-top: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid #c7d2fe;
+  border-radius: 0.5rem;
+  background: #eef2ff;
+  color: #3730a3;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.custom-empty button:hover {
+  background: #e0e7ff;
+}
