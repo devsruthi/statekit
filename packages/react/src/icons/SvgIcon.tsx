@@ -23,16 +23,13 @@ export function SvgIcon({
 
   markup = markup
     .replace(/\s(?:width|height)="[^"]*"/g, '')
-    .replace(
-      /<svg\b([^>]*)>/i,
-      (_match, attrs: string) => {
-        const cleaned = attrs
-          .replace(/\sclass="[^"]*"/g, '')
-          .replace(/\sfocusable="[^"]*"/g, '');
-        const classAttr = className ? ` class="${className}"` : '';
-        return `<svg width="${size}" height="${size}" focusable="false"${classAttr}${cleaned}>`;
-      },
-    );
+    .replace(/<svg\b([^>]*)>/i, (_match, attrs: string) => {
+      const cleaned = attrs
+        .replace(/\sclass="[^"]*"/g, '')
+        .replace(/\sfocusable="[^"]*"/g, '');
+      const classAttr = className ? ` class="${className}"` : '';
+      return `<svg width="${size}" height="${size}" focusable="false"${classAttr}${cleaned}>`;
+    });
 
   return (
     <span

@@ -59,11 +59,7 @@ export function Empty({
       aria-live="polite"
     >
       <div className={cx(surface.media, styles.media)} aria-hidden="true">
-        <SvgIcon
-          svg={emptySearchFileIcon}
-          className={styles.icon}
-          size={28}
-        />
+        <SvgIcon svg={emptySearchFileIcon} className={styles.icon} size={28} />
       </div>
       <div className={surface.copy}>
         <h2 className={surface.title}>{title}</h2>
