@@ -47,3 +47,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # setup-node writes .npmrc with ${NODE_AUTH_TOKEN}; without this, publish returns E404
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
