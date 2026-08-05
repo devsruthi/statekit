@@ -89,31 +89,6 @@ More packages are planned.
 - @statekitjs/cli
 
 
-# Quick Example
-
-```tsx
-import { State } from "@statekitjs/react";
-
-function UsersPage() {
-
-    return (
-
-        <State
-            loading={loading}
-            error={error}
-            empty={users.length === 0}
-        >
-
-            <UsersTable />
-
-        </State>
-
-    );
-
-}
-```
-
-
 # Installation
 
 ```bash
@@ -124,6 +99,25 @@ or
 
 ```bash
 pnpm add @statekitjs/react
+```
+
+
+# Quick Example
+
+```tsx
+import { State } from "@statekitjs/react";
+
+function UsersPage() {
+  return (
+    <State
+      loading={loading}
+      error={error}
+      empty={users.length === 0}
+    >
+      <UsersTable />
+    </State>
+  );
+}
 ```
 
 
@@ -180,15 +174,15 @@ Gradient (2+ colors):
 />
 ```
 
-### Custom empty example
+### Custom loader example
 
 ```tsx
 <State
-  empty={users.length === 0}
-  emptyComponent={
+  loading={isLoading}
+  loadingComponent={
     <div>
-      <h2>No users yet</h2>
-      <p>Invite someone to get started.</p>
+      <h2>Fetching users…</h2>
+      <p>Hang tight while we load your data.</p>
     </div>
   }
 >
