@@ -164,9 +164,7 @@ export function App() {
             Layout
             <select
               value={layout}
-              onChange={(event) =>
-                setLayout(event.target.value as StateLayout)
-              }
+              onChange={(event) => setLayout(event.target.value as StateLayout)}
             >
               {LOADING_LAYOUTS.map((value) => (
                 <option key={value} value={value}>
@@ -270,9 +268,7 @@ export function App() {
             <input
               type="checkbox"
               checked={useCustomComponent}
-              onChange={(event) =>
-                setUseCustomComponent(event.target.checked)
-              }
+              onChange={(event) => setUseCustomComponent(event.target.checked)}
             />
             <span>{customToggleLabel}</span>
           </label>

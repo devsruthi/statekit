@@ -106,10 +106,7 @@ describe('Loading', () => {
     expect(status.style.getPropertyValue('--sk-color-fg')).toBe('');
 
     rerender(
-      <Loading
-        background={['#7C3AED', '#06B6D4']}
-        backgroundOpacity={0.35}
-      />,
+      <Loading background={['#7C3AED', '#06B6D4']} backgroundOpacity={0.35} />,
     );
     status = screen.getByRole('status');
     expect(status).toHaveAttribute('data-loader-background', 'gradient');
@@ -119,9 +116,7 @@ describe('Loading', () => {
   });
 
   it('uses light copy colors when background opacity is above 60%', () => {
-    render(
-      <Loading background={['#4F46E5']} backgroundOpacity={0.61} />,
-    );
+    render(<Loading background={['#4F46E5']} backgroundOpacity={0.61} />);
 
     const status = screen.getByRole('status');
     expect(status.style.getPropertyValue('--sk-color-fg')).toBe('#F8FAFC');
