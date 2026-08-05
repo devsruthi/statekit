@@ -184,29 +184,6 @@
   transform-origin: 50% calc(var(--sk-loader-size) * 0.44);
 }
 
-/* ---- wave ---- */
-.type_wave {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: calc(var(--sk-loader-size) * 0.12);
-  width: 85%;
-  height: 70%;
-}
-
-.type_wave .waveLine {
-  height: calc(var(--sk-loader-size) * 0.1);
-  border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    var(--sk-loader-from),
-    var(--sk-loader-to),
-    var(--sk-loader-accent)
-  );
-  background-size: 200% 100%;
-  transform-origin: left center;
-}
-
 /* ---- progress circle ---- */
 .type_progress_circle {
   position: relative;
@@ -344,19 +321,6 @@
     animation: sk-loader-spin var(--sk-loader-duration) linear infinite;
   }
 
-  .type_wave .waveLine {
-    animation: sk-loader-wave calc(var(--sk-loader-duration) * 1.2) ease-in-out
-      infinite;
-  }
-
-  .type_wave .waveLine:nth-child(2) {
-    animation-delay: calc(var(--sk-loader-duration) * 0.15);
-  }
-
-  .type_wave .waveLine:nth-child(3) {
-    animation-delay: calc(var(--sk-loader-duration) * 0.3);
-  }
-
   .type_progress_circle[data-progress] .progressArc {
     transition: stroke-dashoffset 0.35s ease;
   }
@@ -382,8 +346,7 @@
 
   .type_dots .dot,
   .type_pulse .pulseRing,
-  .type_bars .bar,
-  .type_wave .waveLine {
+  .type_bars .bar {
     opacity: 0.85;
   }
 }
@@ -434,21 +397,6 @@
 @keyframes sk-loader-dash {
   to {
     stroke-dashoffset: 0;
-  }
-}
-
-@keyframes sk-loader-wave {
-  0%,
-  100% {
-    transform: scaleX(0.55);
-    background-position: 0% 50%;
-    opacity: 0.65;
-  }
-
-  50% {
-    transform: scaleX(1);
-    background-position: 100% 50%;
-    opacity: 1;
   }
 }
 

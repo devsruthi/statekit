@@ -137,7 +137,7 @@ Priority when multiple flags are set: **loading → error → empty → children
 | `error` | `unknown` | — | When truthy, renders the error state. Accepts an `Error`, `string`, or any value. |
 | `empty` | `boolean` | `false` | Renders the empty state. |
 | `layout` | `"default" \| "table" \| "grid" \| "list"` | `"default"` | Skeleton layout for the built-in loading state. |
-| `loaderType` | `"spinner" \| "dots" \| "pulse" \| "bars" \| "infinity" \| "ring" \| "orbit" \| "wave" \| "progress-circle" \| "progress-bar"` | `"spinner"` | Built-in loader visual (default layout only). |
+| `loaderType` | `"spinner" \| "dots" \| "pulse" \| "bars" \| "infinity" \| "ring" \| "orbit" \| "progress-circle" \| "progress-bar"` | `"spinner"` | Built-in loader visual (default layout only). |
 | `loaderSize` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"lg"` | Built-in loader size. |
 | `loaderColor` | `[color]` or `[from, to, …]` | `["#4F46E5"]` | Color array: 1 = solid, 2+ = gradient. |
 | `loaderSpeed` | `"slow" \| "normal" \| "fast"` | `"normal"` | Loader animation speed. |
