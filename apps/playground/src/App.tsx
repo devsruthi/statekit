@@ -72,7 +72,9 @@ export function App() {
           emptyComponent={
             <div className="custom-empty">
               <h2>No users yet</h2>
-              <p>Add someone to get started — this is a custom emptyComponent.</p>
+              <p>
+                Add someone to get started — this is a custom emptyComponent.
+              </p>
               <button type="button" onClick={() => setMode('success')}>
                 Show sample users
               </button>
