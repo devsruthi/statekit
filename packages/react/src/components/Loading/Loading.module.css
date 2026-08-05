@@ -1,9 +1,9 @@
 .root {
   --sk-loading-accent: #4f46e5;
   --sk-loading-soft: color-mix(in srgb, #4f46e5 16%, transparent);
-  --sk-loader-size: 4rem;
+  --sk-loader-size: 4.75rem;
   --sk-loader-duration: 0.9s;
-  --sk-loader-stroke: 0.28rem;
+  --sk-loader-stroke: 0.3rem;
   border: none;
   background: transparent;
   box-shadow: none;
@@ -29,18 +29,18 @@
 }
 
 .size_md {
-  --sk-loader-size: 3.25rem;
-  --sk-loader-stroke: 0.24rem;
+  --sk-loader-size: 3.75rem;
+  --sk-loader-stroke: 0.26rem;
 }
 
 .size_lg {
-  --sk-loader-size: 4rem;
-  --sk-loader-stroke: 0.28rem;
+  --sk-loader-size: 4.75rem;
+  --sk-loader-stroke: 0.3rem;
 }
 
 .size_xl {
-  --sk-loader-size: 5.25rem;
-  --sk-loader-stroke: 0.34rem;
+  --sk-loader-size: 6rem;
+  --sk-loader-stroke: 0.36rem;
 }
 
 .speed_slow {
@@ -57,10 +57,10 @@
 
 @media (max-width: 40rem) {
   .size_lg {
-    --sk-loader-size: 3.5rem;
+    --sk-loader-size: 4rem;
   }
 
   .size_xl {
-    --sk-loader-size: 4.5rem;
+    --sk-loader-size: 5.25rem;
   }
 }

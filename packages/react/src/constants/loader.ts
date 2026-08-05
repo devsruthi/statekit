@@ -9,6 +9,22 @@ export const LOADER_TYPE = {
   infinity: 'infinity',
   ring: 'ring',
   orbit: 'orbit',
+  /** Rotating radial lines from the center. */
+  spokes: 'spokes',
+  /** Classic 12-blade fading activity indicator. */
+  activity: 'activity',
+  /** Expanding concentric rings. */
+  ripple: 'ripple',
+  /** Dual sweeping arcs. */
+  aurora: 'aurora',
+  /** Soft rotating petals. */
+  bloom: 'bloom',
+  /** Trailing comet arc. */
+  comet: 'comet',
+  /** Overlapping discs in orbit. */
+  eclipse: 'eclipse',
+  /** Circular spinner with a solid center disc and rotating arc. */
+  gauge: 'gauge',
   progressCircle: 'progress-circle',
   progressBar: 'progress-bar',
 } as const;

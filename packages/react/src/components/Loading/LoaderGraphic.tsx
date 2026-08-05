@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactElement } from 'react';
+import { useId } from 'react';
 import {
   LOADER_TYPE,
   type LoaderColor,
@@ -21,6 +22,14 @@ const TYPE_CLASS: Record<LoaderType, string> = {
   [LOADER_TYPE.infinity]: styles.type_infinity!,
   [LOADER_TYPE.ring]: styles.type_ring!,
   [LOADER_TYPE.orbit]: styles.type_orbit!,
+  [LOADER_TYPE.spokes]: styles.type_spokes!,
+  [LOADER_TYPE.activity]: styles.type_activity!,
+  [LOADER_TYPE.ripple]: styles.type_ripple!,
+  [LOADER_TYPE.aurora]: styles.type_aurora!,
+  [LOADER_TYPE.bloom]: styles.type_bloom!,
+  [LOADER_TYPE.comet]: styles.type_comet!,
+  [LOADER_TYPE.eclipse]: styles.type_eclipse!,
+  [LOADER_TYPE.gauge]: styles.type_gauge!,
   [LOADER_TYPE.progressCircle]: styles.type_progress_circle!,
   [LOADER_TYPE.progressBar]: styles.type_progress_bar!,
 };
@@ -55,6 +64,16 @@ function resolveColorStyle(color: LoaderColor): {
   };
 }
 
+function spokeNodes(count: number, className: string): ReactElement[] {
+  return Array.from({ length: count }, (_, index) => (
+    <span
+      key={index}
+      className={className}
+      style={{ '--sk-spoke-i': index } as CSSProperties}
+    />
+  ));
+}
+
 /**
  * Decorative loader graphic. Hidden from AT by the parent Loading region.
  */
@@ -63,8 +82,11 @@ export function LoaderGraphic({
   color,
   progress,
 }: LoaderGraphicProps): ReactElement {
+  const gradientId = useId().replace(/:/g, '');
   const { mode, style } = resolveColorStyle(color);
   const pct = clampProgress(progress);
+  const from = color[0]!;
+  const to = color.length > 1 ? color[1]! : from;
 
   const graphicClass = cx(
     styles.graphic,
@@ -135,6 +157,145 @@ export function LoaderGraphic({
           <span className={styles.orbitDot} />
         </span>
       );
+
+    case LOADER_TYPE.spokes:
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <span className={styles.spokesWheel}>
+            {spokeNodes(8, styles.spoke!)}
+          </span>
+        </span>
+      );
+
+    case LOADER_TYPE.activity:
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <span className={styles.activityWheel}>
+            {spokeNodes(12, styles.activityBlade!)}
+          </span>
+        </span>
+      );
+
+    case LOADER_TYPE.ripple:
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <span className={styles.rippleRing} />
+          <span className={styles.rippleRing} />
+          <span className={styles.rippleRing} />
+          <span className={styles.rippleCore} />
+        </span>
+      );
+
+    case LOADER_TYPE.aurora:
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <span className={styles.auroraArc} />
+          <span className={styles.auroraArc} />
+          <span className={styles.auroraCore} />
+        </span>
+      );
+
+    case LOADER_TYPE.bloom:
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <span className={styles.bloomWheel}>
+            {Array.from({ length: 6 }, (_, index) => (
+              <span
+                key={index}
+                className={styles.petal}
+                style={{ '--sk-petal-i': index } as CSSProperties}
+              />
+            ))}
+          </span>
+          <span className={styles.bloomCore} />
+        </span>
+      );
+
+    case LOADER_TYPE.comet:
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <svg viewBox="0 0 40 40" className={styles.cometSvg} aria-hidden>
+            <circle
+              className={styles.cometTrack}
+              cx="20"
+              cy="20"
+              r="15"
+              fill="none"
+              strokeWidth="3.5"
+            />
+            <circle
+              className={styles.cometTail}
+              cx="20"
+              cy="20"
+              r="15"
+              fill="none"
+              strokeWidth="3.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </span>
+      );
+
+    case LOADER_TYPE.eclipse:
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <span className={styles.eclipseDisc} />
+          <span className={styles.eclipseDisc} />
+        </span>
+      );
+
+    case LOADER_TYPE.gauge: {
+      const radius = 16;
+      const circumference = 2 * Math.PI * radius;
+      // ~75% visible arc, gap for the light track segment
+      const arcLength = circumference * 0.75;
+      const gapLength = circumference - arcLength;
+      const arcStroke =
+        mode === 'gradient' ? `url(#${gradientId}-gauge)` : from;
+
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <svg viewBox="0 0 40 40" className={styles.gaugeSvg} aria-hidden>
+            {mode === 'gradient' ? (
+              <defs>
+                <linearGradient
+                  id={`${gradientId}-gauge`}
+                  x1="20"
+                  y1="4"
+                  x2="4"
+                  y2="20"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0%" stopColor={from} />
+                  <stop offset="100%" stopColor={to} />
+                </linearGradient>
+              </defs>
+            ) : null}
+            <circle
+              className={styles.gaugeTrack}
+              cx="20"
+              cy="20"
+              r={radius}
+              fill="none"
+              strokeWidth="2.5"
+            />
+            <circle
+              cx="20"
+              cy="20"
+              r={radius}
+              fill="none"
+              stroke={arcStroke}
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeDasharray={`${arcLength} ${gapLength}`}
+              strokeDashoffset="0"
+              transform="rotate(-90 20 20)"
+            />
+          </svg>
+          <span className={styles.gaugeCore} />
+        </span>
+      );
+    }
 
     case LOADER_TYPE.progressCircle: {
       const radius = 16;

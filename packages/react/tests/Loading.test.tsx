@@ -43,6 +43,9 @@ describe('Loading', () => {
     const { container, rerender } = render(<Loading type="dots" />);
     expect(container.querySelector('[data-loader="dots"]')).not.toBeNull();
 
+    rerender(<Loading type="spokes" />);
+    expect(container.querySelector('[data-loader="spokes"]')).not.toBeNull();
+
     rerender(<Loading type="progress-circle" progress={72} />);
     expect(
       container.querySelector('[data-loader="progress-circle"]'),

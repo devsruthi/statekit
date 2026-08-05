@@ -66,6 +66,41 @@ export const Orbit: Story = {
   args: { type: LOADER_TYPE.orbit },
 };
 
+export const Spokes: Story = {
+  args: { type: LOADER_TYPE.spokes, color: LOADER_COLOR_GRADIENT },
+};
+
+export const Activity: Story = {
+  args: { type: LOADER_TYPE.activity, color: LOADER_COLOR_PRIMARY },
+};
+
+export const Ripple: Story = {
+  args: { type: LOADER_TYPE.ripple, color: LOADER_COLOR_GRADIENT },
+};
+
+export const Aurora: Story = {
+  args: { type: LOADER_TYPE.aurora, color: LOADER_COLOR_GRADIENT },
+};
+
+export const Bloom: Story = {
+  args: { type: LOADER_TYPE.bloom, color: LOADER_COLOR_GRADIENT },
+};
+
+export const Comet: Story = {
+  args: { type: LOADER_TYPE.comet, color: LOADER_COLOR_GRADIENT },
+};
+
+export const Eclipse: Story = {
+  args: { type: LOADER_TYPE.eclipse, color: LOADER_COLOR_GRADIENT },
+};
+
+export const Gauge: Story = {
+  args: {
+    type: LOADER_TYPE.gauge,
+    color: LOADER_COLOR_PRIMARY,
+  },
+};
+
 export const ProgressCircle: Story = {
   args: {
     type: LOADER_TYPE.progressCircle,
