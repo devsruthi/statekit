@@ -1,10 +1,13 @@
 .root {
   --sk-error-accent: var(--sk-color-danger);
   --sk-error-soft: var(--sk-color-danger-soft);
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .media {
-  background: var(--sk-error-soft);
+  background: transparent;
   color: var(--sk-error-accent);
 }
 

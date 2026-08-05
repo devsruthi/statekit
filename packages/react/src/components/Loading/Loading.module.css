@@ -1,10 +1,13 @@
 .root {
   --sk-loading-accent: var(--sk-color-accent);
   --sk-loading-soft: var(--sk-color-accent-soft);
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .media {
-  background: var(--sk-loading-soft);
+  background: transparent;
   color: var(--sk-loading-accent);
 }
 

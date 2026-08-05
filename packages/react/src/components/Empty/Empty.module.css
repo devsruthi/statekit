@@ -1,10 +1,13 @@
 .root {
   --sk-empty-accent: var(--sk-color-empty);
   --sk-empty-soft: var(--sk-color-empty-soft);
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .media {
-  background: var(--sk-empty-soft);
+  background: transparent;
   color: var(--sk-empty-accent);
 }
 
