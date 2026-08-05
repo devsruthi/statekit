@@ -119,15 +119,15 @@ Gradient (2+ colors):
 />
 ```
 
-### Custom empty example
+### Custom loader example
 
 ```tsx
 <State
-  empty={users.length === 0}
-  emptyComponent={
+  loading={isLoading}
+  loadingComponent={
     <div>
-      <h2>No users yet</h2>
-      <p>Invite someone to get started.</p>
+      <h2>Fetching users…</h2>
+      <p>Hang tight while we load your data.</p>
     </div>
   }
 >
