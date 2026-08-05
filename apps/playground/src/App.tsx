@@ -314,20 +314,12 @@ export function App() {
                   <span className="custom-empty__dot" />
                 </div>
                 <div className="custom-empty__copy">
-                  <p className="custom-empty__eyebrow">emptyComponent</p>
                   <h2>No users yet</h2>
                   <p>
                     This is a user-created component passed via emptyComponent.
                     Invite someone to get started.
                   </p>
                 </div>
-                <button
-                  type="button"
-                  className="custom-empty__action"
-                  onClick={() => setMode('success')}
-                >
-                  Show sample users
-                </button>
               </div>
             ) : undefined
           }

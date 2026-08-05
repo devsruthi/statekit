@@ -1,6 +1,6 @@
 <p align="center">
   <img
-    src="./assets/branding/github-banner.svg"
+    src="./assets/branding/github-banner.png"
     alt="StateKit Banner"
     width="780"
   />

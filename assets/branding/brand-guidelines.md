@@ -135,12 +135,11 @@ Write with clarity and restraint. Prefer concrete API examples over hype.
 
 ## Banner & social composition
 
-### `github-banner.svg` / `github-banner.png` — 960 × 320
+### `github-banner.svg` / `github-banner.png` — 1024 × 682
 
 - Light background
-- Centered S mark + `StateKit` wordmark
-- Tagline: Beautiful UI states for React. (`React` in Accent)
-- Values line: Simple. Accessible. Customizable.
+- Centered S mark + `StateKit` wordmark (`Kit` in brand gradient)
+- README uses `github-banner.png`
 
 ### `social-preview.png` — 1024 × 537
 

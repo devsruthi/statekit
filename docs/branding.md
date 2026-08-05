@@ -10,7 +10,7 @@ All paths below are repository-relative.
 
 ### `github-banner.svg` / `github-banner.png`
 
-**Path:** `./assets/branding/github-banner.svg` (README) · `./assets/branding/github-banner.png` (raster)  
+**Path:** `./assets/branding/github-banner.png` (README) · `./assets/branding/github-banner.svg` (alternate)  
 **Size:** 1024 × 682
 
 **Use for:**
@@ -19,7 +19,7 @@ All paths below are repository-relative.
 - Top of the root `README.md`
 - Repo-level marketing visuals
 
-**Artwork:** Centered StateKit mark + wordmark, tagline (“Beautiful UI states for React.”), and values line (“Simple. Accessible. Customizable.”) on a light background.
+**Artwork:** Centered StateKit mark + wordmark (`State` dark, `Kit` in brand gradient) on a light background.
 
 **Do not use for:**
 
@@ -124,7 +124,7 @@ Storybook serves it via static dirs as `/branding/favicon.svg`.
 
 | Surface | Asset |
 | --- | --- |
-| Root `README.md` | `github-banner.svg` (480px display width) |
+| Root `README.md` | `github-banner.png` (780px display width) |
 | `packages/react/README.md` | `logo-light.svg` |
 | Storybook | `favicon.svg` |
 | Future website OG | `og-image.png` |
