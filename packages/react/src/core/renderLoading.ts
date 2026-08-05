@@ -6,10 +6,23 @@ import {
   TableSkeleton,
 } from '../components/skeletons';
 import { STATE_LAYOUT, type StateLayout } from '../constants/layout';
+import type {
+  LoaderColor,
+  LoaderSize,
+  LoaderSpeed,
+  LoaderTheme,
+  LoaderType,
+} from '../constants/loader';
 
 export type RenderLoadingOptions = {
   title?: string;
   description?: string;
+  type?: LoaderType;
+  size?: LoaderSize;
+  color?: LoaderColor;
+  speed?: LoaderSpeed;
+  theme?: LoaderTheme;
+  progress?: number;
 };
 
 /**
@@ -17,7 +30,16 @@ export type RenderLoadingOptions = {
  */
 export function renderLoading(
   layout: StateLayout = STATE_LAYOUT.default,
-  { title, description }: RenderLoadingOptions = {},
+  {
+    title,
+    description,
+    type,
+    size,
+    color,
+    speed,
+    theme,
+    progress,
+  }: RenderLoadingOptions = {},
 ): ReactElement {
   switch (layout) {
     case STATE_LAYOUT.table:
@@ -28,6 +50,15 @@ export function renderLoading(
       return createElement(ListSkeleton, { label: title });
     case STATE_LAYOUT.default:
     default:
-      return createElement(DefaultLoading, { title, description });
+      return createElement(DefaultLoading, {
+        title,
+        description,
+        type,
+        size,
+        color,
+        speed,
+        theme,
+        progress,
+      });
   }
 }

@@ -1,5 +1,12 @@
 import type { ReactNode } from 'react';
 import type { StateLayout } from '../../constants/layout';
+import type {
+  LoaderColor,
+  LoaderSize,
+  LoaderSpeed,
+  LoaderTheme,
+  LoaderType,
+} from '../../constants/loader';
 
 export type StateProps = {
   /**
@@ -23,6 +30,41 @@ export type StateProps = {
    * @default "default"
    */
   layout?: StateLayout;
+  /**
+   * Built-in loader visual variant (default layout only).
+   * @default "spinner"
+   */
+  loaderType?: LoaderType;
+  /**
+   * Built-in loader size.
+   * @default "lg"
+   */
+  loaderSize?: LoaderSize;
+  /**
+   * One or more CSS colors for the built-in loader.
+   * - `[color]` → solid
+   * - `[from, to, ...]` → gradient
+   *
+   * @default ["#4F46E5"]
+   * @example
+   * loaderColor={['#4F46E5']}
+   * loaderColor={['#7C3AED', '#06B6D4']}
+   */
+  loaderColor?: LoaderColor;
+  /**
+   * Built-in loader animation speed.
+   * @default "normal"
+   */
+  loaderSpeed?: LoaderSpeed;
+  /**
+   * Theme for the built-in loading surface.
+   * @default "auto"
+   */
+  loaderTheme?: LoaderTheme;
+  /**
+   * Progress percentage (0–100) for `progress-circle` / `progress-bar`.
+   */
+  loaderProgress?: number;
   /**
    * Title shown by the default loading UI.
    */

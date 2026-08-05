@@ -75,7 +75,13 @@ Priority when multiple flags are set: **loading → error → empty → children
 | `loading` | `boolean` | `false` | Renders the loading state. Highest priority. |
 | `error` | `unknown` | — | When truthy, renders the error state. Accepts an `Error`, `string`, or any value. |
 | `empty` | `boolean` | `false` | Renders the empty state. |
-| `layout` | `"default" \| "table" \| "grid" \| "list"` | `"default"` | Skeleton layout for the built-in loading UI only. |
+| `layout` | `"default" \| "table" \| "grid" \| "list"` | `"default"` | Skeleton layout for the built-in loading state. |
+| `loaderType` | `"spinner" \| "dots" \| "pulse" \| "bars" \| "infinity" \| "ring" \| "orbit" \| "wave" \| "progress-circle" \| "progress-bar"` | `"spinner"` | Built-in loader visual (default layout only). |
+| `loaderSize` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"lg"` | Built-in loader size. |
+| `loaderColor` | `[color]` or `[from, to, …]` | `["#4F46E5"]` | Color array: 1 = solid, 2+ = gradient. |
+| `loaderSpeed` | `"slow" \| "normal" \| "fast"` | `"normal"` | Loader animation speed. |
+| `loaderTheme` | `"light" \| "dark" \| "auto"` | `"auto"` | Theme for the built-in loading surface. |
+| `loaderProgress` | `number` | — | Progress 0–100 for `progress-circle` / `progress-bar`. |
 | `loadingTitle` | `string` | `"Loading"` | Title for the default loading UI. |
 | `loadingDescription` | `string` | `"Please wait while content loads."` | Description for the default loading UI. |
 | `emptyTitle` | `string` | `"No data"` | Title for the default empty UI. |
@@ -87,6 +93,31 @@ Priority when multiple flags are set: **loading → error → empty → children
 | `errorComponent` | `ReactNode` | — | Replaces the built-in error UI. |
 | `onRetry` | `() => void` | — | Called when the default error retry action is activated. |
 | `children` | `ReactNode` | — | Success content when no loading, error, or empty state is active. |
+
+### Loader example
+
+```tsx
+<State
+  loading={isLoading}
+  loaderType="spinner"
+  loaderSize="lg"
+  loaderColor={['#4F46E5']}
+  loadingTitle="Loading your data..."
+  loadingDescription="Please wait while we load the data."
+>
+  <UsersTable users={users} />
+</State>
+```
+
+Gradient (2+ colors):
+
+```tsx
+<State
+  loading
+  loaderType="spinner"
+  loaderColor={['#7C3AED', '#06B6D4']}
+/>
+```
 
 ### Custom empty example
 

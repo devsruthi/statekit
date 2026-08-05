@@ -1,0 +1,463 @@
+.graphic {
+  --sk-loader-primary: #4f46e5;
+  --sk-loader-from: #7c3aed;
+  --sk-loader-to: #2563eb;
+  --sk-loader-accent: #06b6d4;
+  --sk-loader-soft: color-mix(
+    in srgb,
+    var(--sk-loader-primary) 18%,
+    transparent
+  );
+
+  box-sizing: border-box;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--sk-loader-size, 2.75rem);
+  height: var(--sk-loader-size, 2.75rem);
+  color: var(--sk-loader-primary);
+}
+
+.color_solid {
+  --sk-loader-fill: var(--sk-loader-from);
+  --sk-loader-stroke-color: var(--sk-loader-from);
+  --sk-loader-to: var(--sk-loader-from);
+}
+
+.color_gradient {
+  --sk-loader-fill: var(--sk-loader-from);
+  --sk-loader-stroke-color: var(--sk-loader-from);
+}
+
+/* ---- spinner ---- */
+.type_spinner .spinner {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: var(--sk-loader-stroke, 0.22rem) solid
+    color-mix(in srgb, var(--sk-loader-stroke-color) 22%, transparent);
+  border-top-color: var(--sk-loader-stroke-color);
+  border-radius: 999px;
+}
+
+.color_gradient.type_spinner .spinner {
+  border-top-color: var(--sk-loader-from);
+  border-right-color: var(--sk-loader-to);
+}
+
+/* ---- dots ---- */
+.type_dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--sk-loader-size) * 0.14);
+}
+
+.type_dots .dot {
+  width: calc(var(--sk-loader-size) * 0.22);
+  height: calc(var(--sk-loader-size) * 0.22);
+  border-radius: 999px;
+  background: var(--sk-loader-fill);
+}
+
+.type_dots .dot:nth-child(1) {
+  background: var(--sk-loader-from);
+}
+
+.type_dots .dot:nth-child(2) {
+  background: var(--sk-loader-primary);
+}
+
+.type_dots .dot:nth-child(3) {
+  background: var(--sk-loader-accent);
+}
+
+/* ---- pulse ---- */
+.type_pulse .pulseCore {
+  position: absolute;
+  width: 36%;
+  height: 36%;
+  border-radius: 999px;
+  background: var(--sk-loader-from);
+}
+
+.type_pulse .pulseRing {
+  position: absolute;
+  inset: 8%;
+  border-radius: 999px;
+  border: var(--sk-loader-stroke) solid var(--sk-loader-from);
+  opacity: 0;
+}
+
+.type_pulse .pulseRing:nth-child(3) {
+  inset: 0;
+}
+
+/* ---- bars ---- */
+.type_bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: calc(var(--sk-loader-size) * 0.1);
+  height: 55%;
+  width: 78%;
+}
+
+.type_bars .bar {
+  flex: 1;
+  height: 40%;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    var(--sk-loader-from),
+    var(--sk-loader-to)
+  );
+  transform-origin: bottom center;
+}
+
+/* ---- infinity ---- */
+.type_infinity {
+  width: calc(var(--sk-loader-size) * 1.35);
+  height: calc(var(--sk-loader-size) * 0.7);
+}
+
+.infinitySvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.infinityPath {
+  stroke: url(#sk-loader-infinity-grad);
+  stroke: var(--sk-loader-from);
+}
+
+.color_gradient .infinityPath {
+  stroke: var(--sk-loader-to);
+}
+
+/* ---- ring ---- */
+.type_ring .ringTrack,
+.type_ring .ringArc {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  box-sizing: border-box;
+}
+
+.type_ring .ringTrack {
+  border: var(--sk-loader-stroke) solid
+    color-mix(in srgb, var(--sk-loader-stroke-color) 18%, transparent);
+}
+
+.type_ring .ringArc {
+  border: var(--sk-loader-stroke) solid transparent;
+  border-top-color: var(--sk-loader-from);
+  border-right-color: var(--sk-loader-to);
+}
+
+/* ---- orbit ---- */
+.type_orbit .orbitCore {
+  width: 28%;
+  height: 28%;
+  border-radius: 999px;
+  background: var(--sk-loader-from);
+}
+
+.type_orbit .orbitPath {
+  position: absolute;
+  inset: 6%;
+  border-radius: 999px;
+  border: 1.5px solid
+    color-mix(in srgb, var(--sk-loader-stroke-color) 28%, transparent);
+}
+
+.type_orbit .orbitDot {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  width: 22%;
+  height: 22%;
+  margin-left: -11%;
+  border-radius: 999px;
+  background: var(--sk-loader-to);
+  transform-origin: 50% calc(var(--sk-loader-size) * 0.44);
+}
+
+/* ---- wave ---- */
+.type_wave {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: calc(var(--sk-loader-size) * 0.12);
+  width: 85%;
+  height: 70%;
+}
+
+.type_wave .waveLine {
+  height: calc(var(--sk-loader-size) * 0.1);
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--sk-loader-from),
+    var(--sk-loader-to),
+    var(--sk-loader-accent)
+  );
+  background-size: 200% 100%;
+  transform-origin: left center;
+}
+
+/* ---- progress circle ---- */
+.type_progress_circle {
+  position: relative;
+}
+
+.progressSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.progressTrack {
+  stroke: color-mix(in srgb, var(--sk-loader-stroke-color) 18%, transparent);
+}
+
+.progressArc {
+  stroke: var(--sk-loader-from);
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.color_gradient .progressArc {
+  stroke: var(--sk-loader-to);
+}
+
+.progressLabel {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--sk-loader-size) * 0.22);
+  font-weight: 700;
+  color: var(--sk-color-fg, #14212b);
+  font-family: inherit;
+}
+
+/* ---- progress bar ---- */
+.type_progress_bar {
+  width: calc(var(--sk-loader-size) * 3.2);
+  height: auto;
+  min-height: calc(var(--sk-loader-size) * 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.progressBarTrack {
+  display: block;
+  width: 100%;
+  height: calc(var(--sk-loader-size) * 0.18);
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(
+    in srgb,
+    var(--sk-loader-stroke-color) 14%,
+    transparent
+  );
+}
+
+.progressBarFill {
+  display: block;
+  height: 100%;
+  width: 40%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--sk-loader-from),
+    var(--sk-loader-to)
+  );
+}
+
+.progressBarMeta {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--sk-color-fg-muted, #5b6b78);
+}
+
+/* ---- animations ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .type_spinner .spinner,
+  .type_ring .ringArc {
+    animation: sk-loader-spin var(--sk-loader-duration) linear infinite;
+  }
+
+  .type_dots .dot {
+    animation: sk-loader-bounce var(--sk-loader-duration) ease-in-out infinite;
+  }
+
+  .type_dots .dot:nth-child(2) {
+    animation-delay: calc(var(--sk-loader-duration) * 0.15);
+  }
+
+  .type_dots .dot:nth-child(3) {
+    animation-delay: calc(var(--sk-loader-duration) * 0.3);
+  }
+
+  .type_pulse .pulseRing {
+    animation: sk-loader-pulse calc(var(--sk-loader-duration) * 1.6) ease-out
+      infinite;
+  }
+
+  .type_pulse .pulseRing:nth-child(3) {
+    animation-delay: calc(var(--sk-loader-duration) * 0.55);
+  }
+
+  .type_bars .bar {
+    animation: sk-loader-bars var(--sk-loader-duration) ease-in-out infinite;
+  }
+
+  .type_bars .bar:nth-child(2) {
+    animation-delay: calc(var(--sk-loader-duration) * 0.1);
+  }
+
+  .type_bars .bar:nth-child(3) {
+    animation-delay: calc(var(--sk-loader-duration) * 0.2);
+  }
+
+  .type_bars .bar:nth-child(4) {
+    animation-delay: calc(var(--sk-loader-duration) * 0.3);
+  }
+
+  .type_bars .bar:nth-child(5) {
+    animation-delay: calc(var(--sk-loader-duration) * 0.4);
+  }
+
+  .type_infinity .infinityPath {
+    stroke-dasharray: 80;
+    stroke-dashoffset: 160;
+    animation: sk-loader-dash calc(var(--sk-loader-duration) * 1.4) linear
+      infinite;
+  }
+
+  .type_orbit .orbitDot {
+    animation: sk-loader-spin var(--sk-loader-duration) linear infinite;
+  }
+
+  .type_wave .waveLine {
+    animation: sk-loader-wave calc(var(--sk-loader-duration) * 1.2) ease-in-out
+      infinite;
+  }
+
+  .type_wave .waveLine:nth-child(2) {
+    animation-delay: calc(var(--sk-loader-duration) * 0.15);
+  }
+
+  .type_wave .waveLine:nth-child(3) {
+    animation-delay: calc(var(--sk-loader-duration) * 0.3);
+  }
+
+  .type_progress_circle[data-progress] .progressArc {
+    transition: stroke-dashoffset 0.35s ease;
+  }
+
+  .type_progress_circle:not([data-progress]) .progressArc {
+    animation: sk-loader-spin var(--sk-loader-duration) linear infinite;
+    transform-origin: 20px 20px;
+  }
+
+  .type_progress_bar:not([data-progress]) .progressBarFill {
+    animation: sk-loader-indeterminate calc(var(--sk-loader-duration) * 1.3)
+      ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .type_spinner .spinner,
+  .type_ring .ringArc {
+    border-top-color: var(--sk-loader-from);
+    border-right-color: var(--sk-loader-to);
+    opacity: 0.9;
+  }
+
+  .type_dots .dot,
+  .type_pulse .pulseRing,
+  .type_bars .bar,
+  .type_wave .waveLine {
+    opacity: 0.85;
+  }
+}
+
+@keyframes sk-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sk-loader-bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+
+  40% {
+    transform: translateY(-35%);
+    opacity: 1;
+  }
+}
+
+@keyframes sk-loader-pulse {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-loader-bars {
+  0%,
+  100% {
+    height: 35%;
+  }
+
+  50% {
+    height: 100%;
+  }
+}
+
+@keyframes sk-loader-dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sk-loader-wave {
+  0%,
+  100% {
+    transform: scaleX(0.55);
+    background-position: 0% 50%;
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scaleX(1);
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes sk-loader-indeterminate {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(280%);
+  }
+}

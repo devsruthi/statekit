@@ -1,19 +1,84 @@
 import type { ReactElement } from 'react';
+import {
+  LOADER_DEFAULTS,
+  LOADER_SIZE,
+  LOADER_SPEED,
+  LOADER_THEME,
+  type LoaderColor,
+  type LoaderSize,
+  type LoaderSpeed,
+  type LoaderTheme,
+  type LoaderType,
+} from '../../constants/loader';
 import surface from '../../styles/surface.module.css';
 import { cx } from '../../utils/cx';
+import { LoaderGraphic } from './LoaderGraphic';
 import styles from './Loading.module.css';
 
 export type LoadingProps = {
   /**
-   * Visible title announced to assistive technologies.
+   * Loader visual variant.
+   * @default "spinner"
+   */
+  type?: LoaderType;
+  /**
+   * Loader size scale.
+   * @default "lg"
+   */
+  size?: LoaderSize;
+  /**
+   * One or more CSS colors.
+   * - `[color]` → solid
+   * - `[from, to, ...]` → gradient
+   * @default ["#4F46E5"]
+   */
+  color?: LoaderColor;
+  /**
+   * Animation speed.
+   * @default "normal"
+   */
+  speed?: LoaderSpeed;
+  /**
+   * Color theme for the loading surface.
+   * @default "auto"
+   */
+  theme?: LoaderTheme;
+  /**
+   * Primary label (also accepted as `title` for backwards compatibility).
    * @default "Loading"
+   */
+  text?: string;
+  /**
+   * Secondary label (also accepted as `description`).
+   * @default "Please wait while content loads."
+   */
+  subtext?: string;
+  /**
+   * @deprecated Prefer `text`.
    */
   title?: string;
   /**
-   * Supporting copy shown below the title.
-   * @default "Please wait while content loads."
+   * @deprecated Prefer `subtext`.
    */
   description?: string;
+  /**
+   * Progress percentage (0–100) for `progress-circle` and `progress-bar`.
+   */
+  progress?: number;
+};
+
+const SIZE_CLASS: Record<LoaderSize, string> = {
+  [LOADER_SIZE.xs]: styles.size_xs!,
+  [LOADER_SIZE.sm]: styles.size_sm!,
+  [LOADER_SIZE.md]: styles.size_md!,
+  [LOADER_SIZE.lg]: styles.size_lg!,
+  [LOADER_SIZE.xl]: styles.size_xl!,
+};
+
+const SPEED_CLASS: Record<LoaderSpeed, string> = {
+  [LOADER_SPEED.slow]: styles.speed_slow!,
+  [LOADER_SPEED.normal]: styles.speed_normal!,
+  [LOADER_SPEED.fast]: styles.speed_fast!,
 };
 
 /**
@@ -21,23 +86,51 @@ export type LoadingProps = {
  * Internal only — not part of the public package API.
  */
 export function Loading({
-  title = 'Loading',
-  description = 'Please wait while content loads.',
+  type = LOADER_DEFAULTS.type,
+  size = LOADER_DEFAULTS.size,
+  color = LOADER_DEFAULTS.color,
+  speed = LOADER_DEFAULTS.speed,
+  theme = LOADER_DEFAULTS.theme,
+  text,
+  subtext,
+  title,
+  description,
+  progress,
 }: LoadingProps): ReactElement {
+  const label = text ?? title ?? LOADER_DEFAULTS.text;
+  const detail = subtext ?? description ?? LOADER_DEFAULTS.subtext;
+  const themeAttr =
+    theme === LOADER_THEME.auto
+      ? undefined
+      : theme === LOADER_THEME.dark
+        ? 'dark'
+        : 'light';
+
   return (
     <section
-      className={cx(surface.surface, styles.root)}
+      className={cx(
+        surface.surface,
+        styles.root,
+        SIZE_CLASS[size],
+        SPEED_CLASS[speed],
+      )}
       data-statekit=""
+      data-statekit-theme={themeAttr}
+      data-loader-type={type}
+      data-loader-size={size}
+      data-loader-color={color.length > 1 ? 'gradient' : 'solid'}
+      data-loader-speed={speed}
       role="status"
       aria-live="polite"
       aria-busy="true"
+      aria-label={label}
     >
       <div className={cx(surface.media, styles.media)} aria-hidden="true">
-        <span className={styles.spinner} />
+        <LoaderGraphic type={type} color={color} progress={progress} />
       </div>
       <div className={surface.copy}>
-        <h2 className={surface.title}>{title}</h2>
-        <p className={surface.description}>{description}</p>
+        <h2 className={surface.title}>{label}</h2>
+        {detail ? <p className={surface.description}>{detail}</p> : null}
       </div>
     </section>
   );
