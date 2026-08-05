@@ -54,7 +54,7 @@ export const Bars: Story = {
   args: { type: LOADER_TYPE.bars, color: LOADER_COLOR_GRADIENT },
 };
 
-export const Infinity: Story = {
+export const InfinityLoader: Story = {
   args: { type: LOADER_TYPE.infinity, color: LOADER_COLOR_GRADIENT },
 };
 
