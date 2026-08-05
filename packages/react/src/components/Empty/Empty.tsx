@@ -1,4 +1,6 @@
 import type { ReactElement } from 'react';
+import emptySearchFileIcon from '../../icons/empty-search-file.svg';
+import { SvgIcon } from '../../icons/SvgIcon';
 import surface from '../../styles/surface.module.css';
 import { cx } from '../../utils/cx';
 import {
@@ -57,56 +59,7 @@ export function Empty({
       aria-live="polite"
     >
       <div className={cx(surface.media, styles.media)} aria-hidden="true">
-        <svg
-          className={styles.icon}
-          viewBox="0 0 24 24"
-          width="22"
-          height="22"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          focusable="false"
-        >
-          <circle
-            cx="5"
-            cy="6.5"
-            r="1.35"
-            stroke="currentColor"
-            strokeWidth="1.7"
-          />
-          <circle
-            cx="5"
-            cy="12"
-            r="1.35"
-            stroke="currentColor"
-            strokeWidth="1.7"
-          />
-          <circle
-            cx="5"
-            cy="17.5"
-            r="1.35"
-            stroke="currentColor"
-            strokeWidth="1.7"
-          />
-          <path
-            d="M8.25 6.5h10.5M8.25 12h7.25M8.25 17.5h4.5"
-            stroke="currentColor"
-            strokeWidth="1.7"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="16.25"
-            cy="15.25"
-            r="4"
-            stroke="currentColor"
-            strokeWidth="1.7"
-          />
-          <path
-            d="M19.15 18.15 21.35 20.35"
-            stroke="currentColor"
-            strokeWidth="1.7"
-            strokeLinecap="round"
-          />
-        </svg>
+        <SvgIcon svg={emptySearchFileIcon} className={styles.icon} size={28} />
       </div>
       <div className={surface.copy}>
         <h2 className={surface.title}>{title}</h2>

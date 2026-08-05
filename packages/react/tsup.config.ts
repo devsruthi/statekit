@@ -135,6 +135,10 @@ export default defineConfig({
   esbuildPlugins: [cssModulesPlugin()],
   esbuildOptions(options) {
     options.jsx = 'automatic';
+    options.loader = {
+      ...options.loader,
+      '.svg': 'text',
+    };
   },
   outExtension({ format }) {
     return {

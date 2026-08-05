@@ -17,7 +17,7 @@ Do **not** use this folder for React package implementation files.
 | `logo-dark.svg` | Horizontal logo for **dark** backgrounds (light wordmark) |
 | `mark.svg` / `mark.png` | Icon-only segmented S mark (transparent / white) |
 | `favicon.svg` | Compact S mark on a light rounded tile |
-| `github-banner.svg` / `.png` | README banner (`960×320`, light centered lockup; SVG preferred) |
+| `github-banner.svg` / `.png` | README banner (`1024×682` PNG preferred; SVG kept as alternate) |
 | `social-preview.png` | Social share preview card (`1024×537`, logo + state icons) |
 | `og-image.png` | Default Open Graph image for the future website (`1200×630`) |
 
@@ -50,9 +50,8 @@ Replace the current gradient base exports with final designed artwork from the b
 ### GitHub banner (`1024×682`)
 
 - Light background
-- Centered S mark + `StateKit` wordmark
-- Tagline: Beautiful UI states for React.
-- Values line: Simple. Accessible. Customizable.
+- Centered S mark + `StateKit` wordmark (`Kit` in brand gradient)
+- README uses `github-banner.png`
 
 ### Social preview (`1024×537`)
 
