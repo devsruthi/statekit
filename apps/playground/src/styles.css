@@ -11,8 +11,7 @@
   color: #0f172a;
   background:
     radial-gradient(circle at top left, #eef2ff 0%, transparent 40%),
-    radial-gradient(circle at top right, #ecfeff 0%, transparent 35%),
-    #f8fafc;
+    radial-gradient(circle at top right, #ecfeff 0%, transparent 35%), #f8fafc;
 }
 
 * {
