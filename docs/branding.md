@@ -11,7 +11,7 @@ All paths below are repository-relative.
 ### `github-banner.svg` / `github-banner.png`
 
 **Path:** `./assets/branding/github-banner.png` (README) · `./assets/branding/github-banner.svg` (alternate)  
-**Size:** 880 × 400
+**Size:** 880 × 520
 
 **Use for:**
 

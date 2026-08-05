@@ -17,7 +17,7 @@ Do **not** use this folder for React package implementation files.
 | `logo-dark.svg` | Horizontal logo for **dark** backgrounds (light wordmark) |
 | `mark.svg` / `mark.png` | Icon-only segmented S mark (transparent / white) |
 | `favicon.svg` | Compact S mark on a light rounded tile |
-| `github-banner.svg` / `.png` | README banner (`880×400` PNG preferred; SVG kept as alternate) |
+| `github-banner.svg` / `.png` | README banner (`880×520` PNG preferred; SVG kept as alternate) |
 | `social-preview.png` | Social share preview card (`1024×537`, logo + state icons) |
 | `og-image.png` | Default Open Graph image for the future website (`1200×630`) |
 
@@ -47,7 +47,7 @@ Do **not** use this folder for React package implementation files.
 
 Replace the current gradient base exports with final designed artwork from the brand board before public launch. Full composition notes live in `docs/branding.md`.
 
-### GitHub banner (`880×400`)
+### GitHub banner (`880×520`)
 
 - Light background
 - Centered S mark + `StateKit` wordmark (`Kit` in brand gradient)
