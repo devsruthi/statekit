@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  Stop rewriting loading, empty, error, and success UI.<br />
+  Stop rewriting loading, empty, error, and success UI.
   Build consistent user experiences with one elegant API.
 </p>
 
