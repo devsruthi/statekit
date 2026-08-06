@@ -1,8 +1,8 @@
 # Playground
 
-Local Vite app for trying `@statekitjs/react` against the workspace package.
+Interactive demo for `@statekitjs/react` — loading, empty, error, and success states.
 
-## Run
+## Run locally
 
 From the repo root:
 
@@ -12,7 +12,7 @@ pnpm --filter @statekitjs/react build
 pnpm --filter @statekit/playground dev
 ```
 
-Or from the root after wiring scripts: `pnpm playground`.
+Or: `pnpm playground`
 
 Open http://localhost:5173
 
@@ -22,8 +22,15 @@ Rebuild the library after source changes:
 pnpm --filter @statekitjs/react build
 ```
 
-For hot-reloading library changes in another terminal:
+## Deploy to Vercel
+
+1. Import the GitHub repo in Vercel
+2. Set **Root Directory** to `apps/playground`
+3. Framework preset: Vite (or leave auto)
+4. `vercel.json` already sets install/build commands for the monorepo
+
+Or from CLI (with Root Directory = `apps/playground`):
 
 ```bash
-pnpm --filter @statekitjs/react dev
+vercel
 ```
