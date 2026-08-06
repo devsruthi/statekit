@@ -93,6 +93,21 @@ Consistent.
 - 🔷 TypeScript support
 - 🎨 Fully customizable
 
+# Documentation
+
+Interactive docs and live demos:
+
+**[https://statekitjs-playground.vercel.app](https://statekitjs-playground.vercel.app)**
+
+You can explore:
+
+- **Live Demo** — try loading, empty, error, and success states interactively
+- **Loaders** — spinner and progress variants, sizes, colors, and speeds
+- **Getting Started** — installation and quick start
+- **Loading / Empty / Error** — default UI, customized props, and fully custom components
+- **API props** — full `State` prop reference with types and defaults
+- **Examples & use cases** — copy-paste patterns for real apps
+
 # Packages
 
 
