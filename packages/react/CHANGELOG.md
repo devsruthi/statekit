@@ -1,5 +1,16 @@
 # @statekitjs/react
 
+## 0.2.0
+
+### Minor Changes
+
+- Improve default empty and error icons, add `emptyIcon`, and set default `loaderSize` to `md`.
+
+  - Replace circular badge icons with SVG-only warning triangle (error) and search (empty) icons
+  - Add `emptyIcon` to customize the built-in empty icon (alongside existing `errorIcon`)
+  - Change default `loaderSize` from `lg` to `md`
+  - Add `spectrum` loader and related loader/progress refinements
+
 ## 0.1.1
 
 ### Patch Changes
