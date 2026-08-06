@@ -13,9 +13,27 @@
 </p>
 
 <p align="center">
-  <a href="https://statekitjs-playground.vercel.app">
-    <img src="https://img.shields.io/badge/docs-live-blue" alt="Docs" />
-  </a>
+  <a href="https://www.npmjs.com/package/@statekitjs/react"
+    ><img
+      src="https://img.shields.io/npm/v/@statekitjs/react.svg?color=cb3837"
+      alt="npm version"
+  /></a>
+  <a href="https://statekitjs-playground.vercel.app"
+    ><img src="https://img.shields.io/badge/docs-live-blue" alt="Docs"
+  /></a>
+  <a href="./LICENSE"
+    ><img
+      src="https://img.shields.io/badge/license-MIT-green.svg"
+      alt="MIT License"
+  /></a>
+  <img
+    src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white"
+    alt="TypeScript"
+  />
+  <img
+    src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black"
+    alt="React 19"
+  />
 </p>
 
 <p align="center">
