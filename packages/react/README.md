@@ -12,6 +12,10 @@
 
 Beautiful loading, empty, error and success states for React.
 
+[![Docs](https://img.shields.io/badge/docs-live-blue)](https://statekitjs-playground.vercel.app)
+
+**Docs:** [Documentation & live demos](https://statekitjs-playground.vercel.app)
+
 </div>
 
 ---

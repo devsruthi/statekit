@@ -12,6 +12,18 @@
   Build consistent user experiences with one elegant API.
 </p>
 
+<p align="center">
+  <a href="https://statekitjs-playground.vercel.app">
+    <img src="https://img.shields.io/badge/docs-live-blue" alt="Docs" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://statekitjs-playground.vercel.app"
+    ><strong>Documentation &amp; live demos →</strong></a
+  >
+</p>
+
 # Why StateKitJS?
 
 Every React application repeats the same UI patterns.
