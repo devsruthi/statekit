@@ -30,6 +30,7 @@ const TYPE_CLASS: Record<LoaderType, string> = {
   [LOADER_TYPE.eclipse]: styles.type_eclipse!,
   [LOADER_TYPE.orbitals]: styles.type_orbitals!,
   [LOADER_TYPE.flare]: styles.type_flare!,
+  [LOADER_TYPE.spectrum]: styles.type_spectrum!,
   [LOADER_TYPE.gauge]: styles.type_gauge!,
   [LOADER_TYPE.progressCircle]: styles.type_progress_circle!,
   [LOADER_TYPE.progressBar]: styles.type_progress_bar!,
@@ -312,6 +313,13 @@ export function LoaderGraphic({
         </span>
       );
 
+    case LOADER_TYPE.spectrum:
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <span className={styles.spectrumRing} />
+        </span>
+      );
+
     case LOADER_TYPE.gauge: {
       const radius = 16;
       const circumference = 2 * Math.PI * radius;
@@ -417,15 +425,16 @@ export function LoaderGraphic({
           data-loader={type}
           data-progress={pct ?? undefined}
         >
-          <span className={styles.progressBarTrack}>
-            <span
-              className={styles.progressBarFill}
-              style={pct == null ? undefined : { width: `${pct}%` }}
-            />
-          </span>
-          <span className={styles.progressBarMeta}>
-            <span>Loading</span>
-            <span>{pct == null ? '…' : `${Math.round(pct)}%`}</span>
+          <span className={styles.progressBarRow}>
+            <span className={styles.progressBarTrack}>
+              <span
+                className={styles.progressBarFill}
+                style={pct == null ? undefined : { width: `${pct}%` }}
+              />
+            </span>
+            <span className={styles.progressBarMeta}>
+              {pct == null ? '…' : `${Math.round(pct)}%`}
+            </span>
           </span>
         </span>
       );

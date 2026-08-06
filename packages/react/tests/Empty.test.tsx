@@ -39,6 +39,23 @@ describe('Empty', () => {
     expect(media).not.toBeNull();
   });
 
+  it('supports a custom empty icon that replaces the default SVG', () => {
+    const { container } = render(
+      <Empty icon={<span data-testid="custom-empty-icon">∅</span>} />,
+    );
+
+    expect(screen.getByTestId('custom-empty-icon')).toBeInTheDocument();
+    expect(container.querySelector('svg')).toBeNull();
+  });
+
+  it('renders a default SVG empty icon without a circular badge', () => {
+    const { container } = render(<Empty />);
+
+    expect(container.querySelector('svg')).not.toBeNull();
+    expect(container.querySelector('[class*="badge"]')).toBeNull();
+    expect(container.querySelector('[class*="media"]')).toBeNull();
+  });
+
   it('supports solid and gradient backgrounds with opacity', () => {
     const { rerender } = render(<Empty />);
     expect(screen.getByRole('status')).toHaveAttribute(

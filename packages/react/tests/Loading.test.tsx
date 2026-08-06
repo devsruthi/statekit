@@ -9,7 +9,7 @@ describe('Loading', () => {
     const status = screen.getByRole('status', { busy: true });
     expect(status).toHaveAttribute('aria-live', 'polite');
     expect(status).toHaveAttribute('data-loader-type', 'ring');
-    expect(status).toHaveAttribute('data-loader-size', 'lg');
+    expect(status).toHaveAttribute('data-loader-size', 'md');
     expect(status).toHaveAttribute('data-loader-color', 'solid');
     expect(status).toHaveAttribute('data-loader-background', 'none');
     expect(status.tagName).toBe('SECTION');

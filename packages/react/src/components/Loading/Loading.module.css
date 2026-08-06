@@ -23,6 +23,16 @@
   color: var(--sk-loading-accent);
 }
 
+.root[data-loader-type='progress-bar'] .media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 14rem);
+  min-width: 10.5rem;
+  min-height: 0;
+  height: auto;
+}
+
 .size_xs {
   --sk-loader-size: 1.75rem;
   --sk-loader-stroke: 0.16rem;

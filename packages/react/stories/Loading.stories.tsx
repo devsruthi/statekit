@@ -15,7 +15,7 @@ const meta: Meta<typeof Loading> = {
   },
   args: {
     type: 'ring',
-    size: 'lg',
+    size: 'md',
     color: LOADER_COLOR_PRIMARY,
     speed: 'normal',
   },
@@ -96,6 +96,13 @@ export const Orbitals: Story = {
 
 export const Flare: Story = {
   args: { type: LOADER_TYPE.flare, color: LOADER_COLOR_GRADIENT },
+};
+
+export const Spectrum: Story = {
+  args: {
+    type: LOADER_TYPE.spectrum,
+    color: ['#7C3AED', '#2563EB', '#06B6D4'],
+  },
 };
 
 export const Gauge: Story = {

@@ -1,8 +1,8 @@
 <p align="center">
   <img
-    src="../../assets/branding/logo-light.svg"
-    alt="StateKit"
-    width="200"
+    src="../../assets/branding/github-banner.png"
+    alt="StateKitJS"
+    width="520"
   />
 </p>
 
@@ -58,6 +58,8 @@ Customize copy, layouts, and default UI when you need to:
   layout="table"
   loadingTitle="Fetching users"
   errorTitle="Could not load users"
+  errorRetryLabel="Retry now"
+  errorRetryStyle={{ background: '#4F46E5', color: '#fff', border: 'none' }}
   onRetry={refetch}
 >
   <UsersTable users={users} />
@@ -76,8 +78,8 @@ Priority when multiple flags are set: **loading → error → empty → children
 | `error` | `unknown` | — | When truthy, renders the error state. Accepts an `Error`, `string`, or any value. |
 | `empty` | `boolean` | `false` | Renders the empty state. |
 | `layout` | `"default" \| "table" \| "grid" \| "list"` | `"default"` | Skeleton layout for the built-in loading state. |
-| `loaderType` | `"ring" \| "dots" \| "circle-dots" \| "pulse" \| "bars" \| "infinity" \| "orbit" \| "spokes" \| "activity" \| "ripple" \| "aurora" \| "bloom" \| "eclipse" \| "orbitals" \| "flare" \| "gauge" \| "progress-circle" \| "progress-bar"` | `"ring"` | Built-in loader visual (default layout only). |
-| `loaderSize` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"lg"` | Built-in loader size. |
+| `loaderType` | `"ring" \| "dots" \| "circle-dots" \| "pulse" \| "bars" \| "infinity" \| "orbit" \| "spokes" \| "activity" \| "ripple" \| "aurora" \| "bloom" \| "eclipse" \| "orbitals" \| "flare" \| "spectrum" \| "gauge" \| "progress-circle" \| "progress-bar"` | `"ring"` | Built-in loader visual (default layout only). |
+| `loaderSize` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Built-in loader size. |
 | `loaderColor` | `[color]` or `[from, to, …]` | `["#4F46E5"]` | Color array: 1 = solid, 2+ = gradient. |
 | `loaderSpeed` | `"slow" \| "normal" \| "fast"` | `"normal"` | Loader animation speed. |
 | `loaderTheme` | `"light" \| "dark" \| "auto"` | `"auto"` | Theme for the built-in loading surface. |
@@ -88,12 +90,18 @@ Priority when multiple flags are set: **loading → error → empty → children
 | `loadingDescription` | `string` | `"Please wait a moment"` | Description for the default loading UI. |
 | `emptyTitle` | `string` | `"No records found"` | Title for the default empty UI. |
 | `emptyDescription` | `string` | `"There are no records to display."` | Description for the default empty UI. |
+| `emptyIcon` | `ReactNode` | — | Replaces the built-in empty icon. |
 | `emptyBackground` | `"none" \| [color] \| [from, to, …]` | `"none"` | Empty surface background. One color = solid, 2+ = gradient. |
 | `emptyBackgroundOpacity` | `number` (0–1) | `1` | Opacity applied to `emptyBackground`. |
 | `errorTitle` | `string` | `"Something went wrong!"` | Title for the default error UI. |
 | `errorDescription` | `string` | `"Unable to load the content."` | Description for the default error UI. |
+| `errorIcon` | `ReactNode` | — | Replaces the built-in error icon. |
 | `errorBackground` | `"none" \| [color] \| [from, to, …]` | `"none"` | Error surface background. One color = solid, 2+ = gradient. |
 | `errorBackgroundOpacity` | `number` (0–1) | `1` | Opacity applied to `errorBackground`. |
+| `errorRetryLabel` | `string` | `"Try again"` | Label for the built-in error retry button. |
+| `errorRetryStyle` | `CSSProperties` | — | Inline styles for the built-in error retry button. |
+| `errorRetryComponent` | `ReactNode` | — | Replaces the built-in error retry button. |
+| `errorHideRetry` | `boolean` | `false` | Hides the built-in error retry button when true. |
 | `loadingComponent` | `ReactNode` | — | Replaces the built-in loading UI. |
 | `emptyComponent` | `ReactNode` | — | Replaces the built-in empty UI. |
 | `errorComponent` | `ReactNode` | — | Replaces the built-in error UI. |

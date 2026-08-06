@@ -9,6 +9,8 @@ import { SURFACE_BACKGROUND_DEFAULTS } from '../utils/resolveSurfaceBackground';
  */
 export const LOADER_TYPE = {
   ring: 'ring',
+  /** Continuous multicolor conic ring. */
+  spectrum: 'spectrum',
   dots: 'dots',
   /** Dots arranged in a rotating ring. */
   circleDots: 'circle-dots',
@@ -101,7 +103,7 @@ export const LOADER_COLOR_GRADIENT = [
 
 export const LOADER_DEFAULTS = {
   type: LOADER_TYPE.ring,
-  size: LOADER_SIZE.lg,
+  size: LOADER_SIZE.md,
   color: LOADER_COLOR_PRIMARY,
   speed: LOADER_SPEED.normal,
   theme: LOADER_THEME.auto,

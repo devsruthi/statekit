@@ -1,6 +1,4 @@
-import type { ReactElement } from 'react';
-import emptySearchFileIcon from '../../icons/empty-search-file.svg';
-import { SvgIcon } from '../../icons/SvgIcon';
+import type { ReactElement, ReactNode } from 'react';
 import surface from '../../styles/surface.module.css';
 import { cx } from '../../utils/cx';
 import {
@@ -22,6 +20,11 @@ export type EmptyProps = {
    */
   description?: string;
   /**
+   * Replaces the entire built-in empty icon SVG.
+   * When set, the default search icon is not rendered.
+   */
+  icon?: ReactNode;
+  /**
    * Surface background.
    * - `"none"` → transparent (default)
    * - `[color]` → solid
@@ -40,9 +43,30 @@ export type EmptyProps = {
  * Built-in empty presentation used by State.
  * Internal only — not part of the public package API.
  */
+function DefaultEmptyIcon(): ReactElement {
+  return (
+    <svg
+      className={styles.iconSvg}
+      viewBox="0 0 48 48"
+      width="48"
+      height="48"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle className={styles.iconLens} cx="21" cy="21" r="12.5" />
+      <path
+        className={styles.iconHandle}
+        d="M30.2 30.2 41 41"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
 export function Empty({
   title = 'No records found',
   description = 'There are no records to display.',
+  icon,
   background = SURFACE_BACKGROUND_DEFAULTS.background,
   backgroundOpacity = SURFACE_BACKGROUND_DEFAULTS.backgroundOpacity,
 }: EmptyProps): ReactElement {
@@ -58,8 +82,8 @@ export function Empty({
       role="status"
       aria-live="polite"
     >
-      <div className={cx(surface.media, styles.media)} aria-hidden="true">
-        <SvgIcon svg={emptySearchFileIcon} className={styles.icon} size={28} />
+      <div className={styles.icon} aria-hidden="true">
+        {icon != null ? icon : <DefaultEmptyIcon />}
       </div>
       <div className={surface.copy}>
         <h2 className={surface.title}>{title}</h2>

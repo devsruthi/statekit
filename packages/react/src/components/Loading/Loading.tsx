@@ -25,7 +25,7 @@ export type LoadingProps = {
   type?: LoaderType;
   /**
    * Loader size scale.
-   * @default "lg"
+   * @default "md"
    */
   size?: LoaderSize;
   /**
