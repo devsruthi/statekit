@@ -1,12 +1,16 @@
 
+<p align="center">
+  <img
+    src="./assets/branding/github-banner.png"
+    alt="StateKitJS"
+    width="720"
+  />
+</p>
 
-
-
-
-
-Stop rewriting loading, empty, error, and success UI. Build consistent user experiences with one elegant API.
-
-
+<p align="center">
+  Stop rewriting loading, empty, error, and success UI.
+  Build consistent user experiences with one elegant API.
+</p>
 
 # Why StateKitJS?
 
