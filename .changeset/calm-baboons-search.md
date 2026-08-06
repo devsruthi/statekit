@@ -1,0 +1,5 @@
+---
+'@statekitjs/react': minor
+---
+
+Loading
