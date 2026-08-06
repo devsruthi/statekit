@@ -12,7 +12,11 @@
 
 Beautiful loading, empty, error and success states for React.
 
+[![npm version](https://img.shields.io/npm/v/@statekitjs/react.svg?color=cb3837)](https://www.npmjs.com/package/@statekitjs/react)
 [![Docs](https://img.shields.io/badge/docs-live-blue)](https://statekitjs-playground.vercel.app)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 
 **Docs:** [Documentation & live demos](https://statekitjs-playground.vercel.app)
 
