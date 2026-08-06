@@ -12,7 +12,7 @@ Do **not** use this folder for React package implementation files.
 | `brand-board.png` | Master visual brand board used as the design reference |
 | `brand-guidelines.md` | Brand name, package, mission, vision, values, colors, type, logo rules, tone |
 | `README.md` | Explains every asset in this directory |
-| `logo.svg` | Primary horizontal logo + tagline (`React` in accent cyan) |
+| `logo.svg` / `logo.png` | Horizontal lockup: `mark.png` + `@statekitjs/react` + `StateKitJS` |
 | `logo-light.svg` | Horizontal logo for **light** backgrounds (dark wordmark) |
 | `logo-dark.svg` | Horizontal logo for **dark** backgrounds (light wordmark) |
 | `mark.svg` / `mark.png` | Icon-only segmented S mark (transparent / white) |
@@ -24,13 +24,15 @@ Do **not** use this folder for React package implementation files.
 ## Logo anatomy
 
 ```
-[ S-mark ]  StateKit
-            Beautiful UI states for React.
+[ mark.png ]  @statekitjs/react
+              StateKitJS
 ```
 
-- **Mark:** segmented S (Secondary → Primary gradient) + Accent cyan status dot
-- **Wordmark:** Inter Bold, `StateKit`
-- **Tagline:** Inter Medium; `React` uses Accent `#06B6D4`
+- **Mark:** official `mark.png` (segmented S, violet → blue + cyan tip)
+- **Eyebrow:** JetBrains Mono / monospace, Primary indigo
+- **Wordmark:** `StateKit` navy + `JS` accent cyan
+
+`logo.svg` references `mark.png` beside vector text. `logo.png` is the rasterized lockup.
 
 ## When to use each logo
 

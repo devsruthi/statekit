@@ -40,6 +40,17 @@ describe('State customization', () => {
     ).toBeInTheDocument();
   });
 
+  it('customizes the empty icon', () => {
+    const { container } = render(
+      <State empty emptyIcon={<span data-testid="custom-empty-icon">∅</span>}>
+        <div>Users</div>
+      </State>,
+    );
+
+    expect(screen.getByTestId('custom-empty-icon')).toBeInTheDocument();
+    expect(container.querySelector('svg')).toBeNull();
+  });
+
   it('customizes default error copy and retry', async () => {
     const user = userEvent.setup();
     const onRetry = vi.fn();
@@ -127,6 +138,21 @@ describe('State customization', () => {
     expect(
       screen.queryByRole('button', { name: 'Try again' }),
     ).not.toBeInTheDocument();
+  });
+
+  it('hides the retry button when errorHideRetry is true', () => {
+    render(
+      <State error="boom" errorHideRetry onRetry={() => undefined}>
+        <div>Users</div>
+      </State>,
+    );
+
+    expect(
+      screen.queryByRole('button', { name: 'Try again' }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Something went wrong!' }),
+    ).toBeInTheDocument();
   });
 
   it('passes loadingTitle through to skeleton labels', () => {

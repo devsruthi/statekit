@@ -1,6 +1,7 @@
 import {
   Fragment,
   createElement,
+  type CSSProperties,
   type ReactElement,
   type ReactNode,
 } from 'react';
@@ -35,12 +36,18 @@ export type RenderStateOptions = {
   loadingDescription?: string;
   emptyTitle?: string;
   emptyDescription?: string;
+  emptyIcon?: ReactNode;
   emptyBackground?: SurfaceBackground;
   emptyBackgroundOpacity?: number;
   errorTitle?: string;
   errorDescription?: string;
+  errorIcon?: ReactNode;
   errorBackground?: SurfaceBackground;
   errorBackgroundOpacity?: number;
+  errorRetryLabel?: string;
+  errorRetryStyle?: CSSProperties;
+  errorRetryComponent?: ReactNode;
+  errorHideRetry?: boolean;
   loadingComponent?: ReactNode;
   emptyComponent?: ReactNode;
   errorComponent?: ReactNode;
@@ -71,12 +78,18 @@ export function renderState(
     loadingDescription,
     emptyTitle,
     emptyDescription,
+    emptyIcon,
     emptyBackground,
     emptyBackgroundOpacity,
     errorTitle,
     errorDescription,
+    errorIcon,
     errorBackground,
     errorBackgroundOpacity,
+    errorRetryLabel,
+    errorRetryStyle,
+    errorRetryComponent,
+    errorHideRetry,
     loadingComponent,
     emptyComponent,
     errorComponent,
@@ -111,7 +124,12 @@ export function renderState(
         error: resolved.error,
         title: errorTitle,
         description: errorDescription,
+        icon: errorIcon,
         onRetry,
+        retryLabel: errorRetryLabel,
+        retryStyle: errorRetryStyle,
+        retryComponent: errorRetryComponent,
+        hideRetry: errorHideRetry,
         background: errorBackground,
         backgroundOpacity: errorBackgroundOpacity,
       });
@@ -124,6 +142,7 @@ export function renderState(
       return createElement(Empty, {
         title: emptyTitle,
         description: emptyDescription,
+        icon: emptyIcon,
         background: emptyBackground,
         backgroundOpacity: emptyBackgroundOpacity,
       });

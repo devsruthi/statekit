@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import type { StateLayout } from '../../constants/layout';
 import type {
   LoaderBackground,
@@ -34,12 +34,12 @@ export type StateProps = {
   layout?: StateLayout;
   /**
    * Built-in loader visual variant (default layout only).
-   * @default "spinner"
+   * @default "ring"
    */
   loaderType?: LoaderType;
   /**
    * Built-in loader size.
-   * @default "lg"
+   * @default "md"
    */
   loaderSize?: LoaderSize;
   /**
@@ -98,6 +98,11 @@ export type StateProps = {
    */
   emptyDescription?: string;
   /**
+   * Replaces the entire built-in empty icon SVG.
+   * When set, the default search icon is not rendered.
+   */
+  emptyIcon?: ReactNode;
+  /**
    * Background for the built-in empty surface.
    * - `"none"` → transparent (default)
    * - `[color]` → solid
@@ -121,6 +126,11 @@ export type StateProps = {
    */
   errorDescription?: string;
   /**
+   * Replaces the entire built-in error icon SVG.
+   * When set, the default warning triangle is not rendered.
+   */
+  errorIcon?: ReactNode;
+  /**
    * Background for the built-in error surface.
    * - `"none"` → transparent (default)
    * - `[color]` → solid
@@ -134,6 +144,26 @@ export type StateProps = {
    * @default 1
    */
   errorBackgroundOpacity?: number;
+  /**
+   * Label for the built-in error retry button.
+   * @default "Try again"
+   */
+  errorRetryLabel?: string;
+  /**
+   * Inline styles for the built-in error retry button.
+   */
+  errorRetryStyle?: CSSProperties;
+  /**
+   * Replaces the built-in error retry button.
+   * When set, `errorRetryLabel` and `errorRetryStyle` are ignored.
+   * Wire click handling inside the component.
+   */
+  errorRetryComponent?: ReactNode;
+  /**
+   * When true, hides the built-in error retry button (and `errorRetryComponent`).
+   * @default false
+   */
+  errorHideRetry?: boolean;
   /**
    * Replaces the built-in loading UI when provided.
    */

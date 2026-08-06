@@ -8,12 +8,15 @@ import { SURFACE_BACKGROUND_DEFAULTS } from '../utils/resolveSurfaceBackground';
  * Built-in loader visual variants.
  */
 export const LOADER_TYPE = {
-  spinner: 'spinner',
+  ring: 'ring',
+  /** Continuous multicolor conic ring. */
+  spectrum: 'spectrum',
   dots: 'dots',
+  /** Dots arranged in a rotating ring. */
+  circleDots: 'circle-dots',
   pulse: 'pulse',
   bars: 'bars',
   infinity: 'infinity',
-  ring: 'ring',
   orbit: 'orbit',
   /** Rotating radial lines from the center. */
   spokes: 'spokes',
@@ -25,10 +28,12 @@ export const LOADER_TYPE = {
   aurora: 'aurora',
   /** Soft rotating petals. */
   bloom: 'bloom',
-  /** Trailing comet arc. */
-  comet: 'comet',
   /** Overlapping discs in orbit. */
   eclipse: 'eclipse',
+  /** Nested orbital dots at different speeds. */
+  orbitals: 'orbitals',
+  /** Contra-rotating glowing arcs. */
+  flare: 'flare',
   /** Circular spinner with a solid center disc and rotating arc. */
   gauge: 'gauge',
   progressCircle: 'progress-circle',
@@ -97,8 +102,8 @@ export const LOADER_COLOR_GRADIENT = [
 ] as const satisfies LoaderColor;
 
 export const LOADER_DEFAULTS = {
-  type: LOADER_TYPE.spinner,
-  size: LOADER_SIZE.lg,
+  type: LOADER_TYPE.ring,
+  size: LOADER_SIZE.md,
   color: LOADER_COLOR_PRIMARY,
   speed: LOADER_SPEED.normal,
   theme: LOADER_THEME.auto,
