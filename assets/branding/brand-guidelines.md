@@ -135,7 +135,7 @@ Write with clarity and restraint. Prefer concrete API examples over hype.
 
 ## Banner & social composition
 
-### `github-banner.svg` / `github-banner.png` — 1024 × 682
+### `github-banner.svg` / `github-banner.png` — 1024 × 420
 
 - Light background
 - Centered S mark + `StateKitJS` wordmark
