@@ -14,7 +14,7 @@ const meta: Meta<typeof Loading> = {
     layout: 'padded',
   },
   args: {
-    type: 'spinner',
+    type: 'ring',
     size: 'lg',
     color: LOADER_COLOR_PRIMARY,
     speed: 'normal',
@@ -46,6 +46,10 @@ export const Dots: Story = {
   args: { type: LOADER_TYPE.dots, color: LOADER_COLOR_GRADIENT },
 };
 
+export const CircleDots: Story = {
+  args: { type: LOADER_TYPE.circleDots, color: LOADER_COLOR_GRADIENT },
+};
+
 export const Pulse: Story = {
   args: { type: LOADER_TYPE.pulse },
 };
@@ -56,10 +60,6 @@ export const Bars: Story = {
 
 export const InfinityLoader: Story = {
   args: { type: LOADER_TYPE.infinity, color: LOADER_COLOR_GRADIENT },
-};
-
-export const Ring: Story = {
-  args: { type: LOADER_TYPE.ring, color: LOADER_COLOR_GRADIENT },
 };
 
 export const Orbit: Story = {
@@ -86,12 +86,16 @@ export const Bloom: Story = {
   args: { type: LOADER_TYPE.bloom, color: LOADER_COLOR_GRADIENT },
 };
 
-export const Comet: Story = {
-  args: { type: LOADER_TYPE.comet, color: LOADER_COLOR_GRADIENT },
-};
-
 export const Eclipse: Story = {
   args: { type: LOADER_TYPE.eclipse, color: LOADER_COLOR_GRADIENT },
+};
+
+export const Orbitals: Story = {
+  args: { type: LOADER_TYPE.orbitals, color: LOADER_COLOR_GRADIENT },
+};
+
+export const Flare: Story = {
+  args: { type: LOADER_TYPE.flare, color: LOADER_COLOR_GRADIENT },
 };
 
 export const Gauge: Story = {

@@ -171,7 +171,7 @@ export function App() {
   const [mode, setMode] = useState<DemoMode>('loading');
   const [layout, setLayout] = useState<StateLayout>('default');
   const [useCustomComponent, setUseCustomComponent] = useState(false);
-  const [loaderType, setLoaderType] = useState<LoaderType>('spinner');
+  const [loaderType, setLoaderType] = useState<LoaderType>('ring');
   const [loaderSize, setLoaderSize] = useState<LoaderSize>('lg');
   const [backgroundId, setBackgroundId] = useState('none');
   const [backgroundOpacity, setBackgroundOpacity] = useState(0.16);

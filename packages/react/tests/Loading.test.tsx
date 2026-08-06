@@ -8,7 +8,7 @@ describe('Loading', () => {
 
     const status = screen.getByRole('status', { busy: true });
     expect(status).toHaveAttribute('aria-live', 'polite');
-    expect(status).toHaveAttribute('data-loader-type', 'spinner');
+    expect(status).toHaveAttribute('data-loader-type', 'ring');
     expect(status).toHaveAttribute('data-loader-size', 'lg');
     expect(status).toHaveAttribute('data-loader-color', 'solid');
     expect(status).toHaveAttribute('data-loader-background', 'none');
@@ -17,7 +17,7 @@ describe('Loading', () => {
       screen.getByRole('heading', { name: 'Loading...' }),
     ).toBeInTheDocument();
     expect(screen.getByText('Please wait a moment')).toBeInTheDocument();
-    expect(container.querySelector('[data-loader="spinner"]')).not.toBeNull();
+    expect(container.querySelector('[data-loader="ring"]')).not.toBeNull();
   });
 
   it('supports custom copy via text/subtext', () => {
@@ -55,7 +55,7 @@ describe('Loading', () => {
   it('uses a single color as a solid fill', () => {
     const { container } = render(<Loading color={['#06B6D4']} />);
 
-    const graphic = container.querySelector('[data-loader="spinner"]');
+    const graphic = container.querySelector('[data-loader="ring"]');
     expect(graphic).not.toBeNull();
     expect(
       (graphic as HTMLElement).style.getPropertyValue('--sk-loader-from'),
@@ -72,7 +72,7 @@ describe('Loading', () => {
   it('uses multiple colors as a gradient', () => {
     const { container } = render(<Loading color={['#7C3AED', '#06B6D4']} />);
 
-    const graphic = container.querySelector('[data-loader="spinner"]');
+    const graphic = container.querySelector('[data-loader="ring"]');
     expect(graphic).not.toBeNull();
     expect(
       (graphic as HTMLElement).style.getPropertyValue('--sk-loader-from'),

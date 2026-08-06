@@ -119,7 +119,7 @@ Priority when multiple flags are set: **loading → error → empty → children
 | `error`                   | `unknown`                                                                                                                                                                                            | —                                    | When truthy, renders the error state. Accepts an `Error`, `string`, or any value. |
 | `empty`                   | `boolean`                                                                                                                                                                                            | `false`                              | Renders the empty state.                                                          |
 | `layout`                  | `"default" | "table" | "grid" | "list"`                                                                                                                                                              | `"default"`                          | Skeleton layout for the built-in loading state.                                   |
-| `loaderType`              | `"spinner" | "dots" | "pulse" | "bars" | "infinity" | "ring" | "orbit" | "spokes" | "activity" | "ripple" | "aurora" | "bloom" | "comet" | "eclipse" | "gauge" | "progress-circle" | "progress-bar"` | `"spinner"`                          | Built-in loader visual (default layout only).                                     |
+| `loaderType`              | `"ring" | "dots" | "circle-dots" | "pulse" | "bars" | "infinity" | "orbit" | "spokes" | "activity" | "ripple" | "aurora" | "bloom" | "eclipse" | "orbitals" | "flare" | "gauge" | "progress-circle" | "progress-bar"` | `"ring"`                          | Built-in loader visual (default layout only).                                     |
 | `loaderSize`              | `"xs" | "sm" | "md" | "lg" | "xl"`                                                                                                                                                                   | `"lg"`                               | Built-in loader size.                                                             |
 | `loaderColor`             | `[color]` or `[from, to, …]`                                                                                                                                                                         | `["#4F46E5"]`                        | Color array: 1 = solid, 2+ = gradient.                                            |
 | `loaderSpeed`             | `"slow" | "normal" | "fast"`                                                                                                                                                                         | `"normal"`                           | Loader animation speed.                                                           |
@@ -149,7 +149,7 @@ Priority when multiple flags are set: **loading → error → empty → children
 ```tsx
 <State
   loading={isLoading}
-  loaderType="spinner"
+  loaderType="ring"
   loaderSize="lg"
   loaderColor={['#4F46E5']}
   loadingTitle="Loading your data..."
@@ -164,7 +164,7 @@ Gradient (2+ colors):
 ```tsx
 <State
   loading
-  loaderType="spinner"
+  loaderType="ring"
   loaderColor={['#7C3AED', '#06B6D4']}
 />
 ```

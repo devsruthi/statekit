@@ -34,7 +34,7 @@ export type StateProps = {
   layout?: StateLayout;
   /**
    * Built-in loader visual variant (default layout only).
-   * @default "spinner"
+   * @default "ring"
    */
   loaderType?: LoaderType;
   /**

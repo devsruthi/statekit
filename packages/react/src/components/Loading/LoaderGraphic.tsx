@@ -15,20 +15,21 @@ export type LoaderGraphicProps = {
 };
 
 const TYPE_CLASS: Record<LoaderType, string> = {
-  [LOADER_TYPE.spinner]: styles.type_spinner!,
+  [LOADER_TYPE.ring]: styles.type_ring!,
   [LOADER_TYPE.dots]: styles.type_dots!,
+  [LOADER_TYPE.circleDots]: styles.type_circle_dots!,
   [LOADER_TYPE.pulse]: styles.type_pulse!,
   [LOADER_TYPE.bars]: styles.type_bars!,
   [LOADER_TYPE.infinity]: styles.type_infinity!,
-  [LOADER_TYPE.ring]: styles.type_ring!,
   [LOADER_TYPE.orbit]: styles.type_orbit!,
   [LOADER_TYPE.spokes]: styles.type_spokes!,
   [LOADER_TYPE.activity]: styles.type_activity!,
   [LOADER_TYPE.ripple]: styles.type_ripple!,
   [LOADER_TYPE.aurora]: styles.type_aurora!,
   [LOADER_TYPE.bloom]: styles.type_bloom!,
-  [LOADER_TYPE.comet]: styles.type_comet!,
   [LOADER_TYPE.eclipse]: styles.type_eclipse!,
+  [LOADER_TYPE.orbitals]: styles.type_orbitals!,
+  [LOADER_TYPE.flare]: styles.type_flare!,
   [LOADER_TYPE.gauge]: styles.type_gauge!,
   [LOADER_TYPE.progressCircle]: styles.type_progress_circle!,
   [LOADER_TYPE.progressBar]: styles.type_progress_bar!,
@@ -105,6 +106,32 @@ export function LoaderGraphic({
         </span>
       );
 
+    case LOADER_TYPE.circleDots: {
+      const count = 8;
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <span className={styles.circleDotsWheel}>
+            {Array.from({ length: count }, (_, index) => (
+              <span
+                key={index}
+                className={styles.circleDot}
+                style={
+                  {
+                    '--sk-spoke-i': index,
+                    ...(mode === 'gradient'
+                      ? {
+                          background: `color-mix(in srgb, ${to} ${((index / (count - 1)) * 100).toFixed(1)}%, ${from})`,
+                        }
+                      : null),
+                  } as CSSProperties
+                }
+              />
+            ))}
+          </span>
+        </span>
+      );
+    }
+
     case LOADER_TYPE.pulse:
       return (
         <span className={graphicClass} style={style} data-loader={type}>
@@ -125,29 +152,57 @@ export function LoaderGraphic({
         </span>
       );
 
-    case LOADER_TYPE.infinity:
+    case LOADER_TYPE.infinity: {
+      // Continuous lemniscate (∞) filling the viewBox (padding for stroke).
+      const infinityPath =
+        'M6 25C6 6 28 6 50 25C72 44 94 44 94 25C94 6 72 6 50 25C28 44 6 44 6 25';
+      const infinityStroke =
+        mode === 'gradient' ? `url(#${gradientId}-infinity)` : from;
+
       return (
         <span className={graphicClass} style={style} data-loader={type}>
-          <svg viewBox="0 0 64 32" className={styles.infinitySvg} aria-hidden>
+          <svg
+            viewBox="0 0 100 50"
+            className={styles.infinitySvg}
+            aria-hidden
+          >
+            {mode === 'gradient' ? (
+              <defs>
+                <linearGradient
+                  id={`${gradientId}-infinity`}
+                  x1="6"
+                  y1="25"
+                  x2="94"
+                  y2="25"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0%" stopColor={from} />
+                  <stop offset="55%" stopColor={to} />
+                  <stop offset="100%" stopColor={from} />
+                </linearGradient>
+              </defs>
+            ) : null}
+            <path
+              className={styles.infinityTrack}
+              d={infinityPath}
+              pathLength={100}
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
             <path
               className={styles.infinityPath}
-              d="M8 16 C8 8 16 8 20 16 C24 24 32 24 32 16 C32 8 40 8 44 16 C48 24 56 24 56 16 C56 8 48 8 44 16 C40 24 32 24 32 16 C32 8 24 8 20 16 C16 24 8 24 8 16 Z"
+              d={infinityPath}
+              pathLength={100}
               fill="none"
-              strokeWidth="5"
+              stroke={infinityStroke}
               strokeLinecap="round"
               strokeLinejoin="round"
             />
           </svg>
         </span>
       );
-
-    case LOADER_TYPE.ring:
-      return (
-        <span className={graphicClass} style={style} data-loader={type}>
-          <span className={styles.ringTrack} />
-          <span className={styles.ringArc} />
-        </span>
-      );
+    }
 
     case LOADER_TYPE.orbit:
       return (
@@ -171,7 +226,22 @@ export function LoaderGraphic({
       return (
         <span className={graphicClass} style={style} data-loader={type}>
           <span className={styles.activityWheel}>
-            {spokeNodes(12, styles.activityBlade!)}
+            {Array.from({ length: 12 }, (_, index) => (
+              <span
+                key={index}
+                className={styles.activityBlade}
+                style={
+                  {
+                    '--sk-spoke-i': index,
+                    ...(mode === 'gradient'
+                      ? {
+                          background: `color-mix(in srgb, ${to} ${((index / 11) * 100).toFixed(1)}%, ${from})`,
+                        }
+                      : null),
+                  } as CSSProperties
+                }
+              />
+            ))}
           </span>
         </span>
       );
@@ -211,36 +281,34 @@ export function LoaderGraphic({
         </span>
       );
 
-    case LOADER_TYPE.comet:
-      return (
-        <span className={graphicClass} style={style} data-loader={type}>
-          <svg viewBox="0 0 40 40" className={styles.cometSvg} aria-hidden>
-            <circle
-              className={styles.cometTrack}
-              cx="20"
-              cy="20"
-              r="15"
-              fill="none"
-              strokeWidth="3.5"
-            />
-            <circle
-              className={styles.cometTail}
-              cx="20"
-              cy="20"
-              r="15"
-              fill="none"
-              strokeWidth="3.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </span>
-      );
-
     case LOADER_TYPE.eclipse:
       return (
         <span className={graphicClass} style={style} data-loader={type}>
           <span className={styles.eclipseDisc} />
           <span className={styles.eclipseDisc} />
+        </span>
+      );
+
+    case LOADER_TYPE.orbitals:
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <span className={styles.orbitalPath} />
+          <span className={styles.orbitalPath} />
+          <span className={styles.orbitalPath} />
+          <span className={styles.orbitalDot} />
+          <span className={styles.orbitalDot} />
+          <span className={styles.orbitalDot} />
+          <span className={styles.orbitalCore} />
+        </span>
+      );
+
+    case LOADER_TYPE.flare:
+      return (
+        <span className={graphicClass} style={style} data-loader={type}>
+          <span className={styles.flareArc} />
+          <span className={styles.flareArc} />
+          <span className={styles.flareGlow} />
+          <span className={styles.flareCore} />
         </span>
       );
 
@@ -362,11 +430,12 @@ export function LoaderGraphic({
         </span>
       );
 
-    case LOADER_TYPE.spinner:
+    case LOADER_TYPE.ring:
     default:
       return (
-        <span className={graphicClass} style={style} data-loader="spinner">
-          <span className={styles.spinner} />
+        <span className={graphicClass} style={style} data-loader="ring">
+          <span className={styles.ringTrack} />
+          <span className={styles.ringArc} />
         </span>
       );
   }

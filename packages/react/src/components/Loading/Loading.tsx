@@ -20,7 +20,7 @@ import styles from './Loading.module.css';
 export type LoadingProps = {
   /**
    * Loader visual variant.
-   * @default "spinner"
+   * @default "ring"
    */
   type?: LoaderType;
   /**
