@@ -42,10 +42,7 @@ describe('State customization', () => {
 
   it('customizes the empty icon', () => {
     const { container } = render(
-      <State
-        empty
-        emptyIcon={<span data-testid="custom-empty-icon">∅</span>}
-      >
+      <State empty emptyIcon={<span data-testid="custom-empty-icon">∅</span>}>
         <div>Users</div>
       </State>,
     );

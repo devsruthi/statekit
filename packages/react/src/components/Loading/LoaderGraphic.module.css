@@ -478,8 +478,7 @@
   height: 14%;
   margin-left: -7%;
   background: var(--sk-loader-to);
-  box-shadow: 0 0 10px
-    color-mix(in srgb, var(--sk-loader-to) 50%, transparent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--sk-loader-to) 50%, transparent);
   transform-origin: 50% calc(var(--sk-loader-size) * 0.3);
 }
 
@@ -698,11 +697,7 @@
   height: 0.35rem;
   overflow: hidden;
   border-radius: 999px;
-  background: color-mix(
-    in srgb,
-    var(--sk-loader-stroke-color) 18%,
-    #e2e8f0
-  );
+  background: color-mix(in srgb, var(--sk-loader-stroke-color) 18%, #e2e8f0);
 }
 
 .progressBarFill {

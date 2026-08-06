@@ -54,11 +54,7 @@ function DefaultEmptyIcon(): ReactElement {
       focusable="false"
     >
       <circle className={styles.iconLens} cx="21" cy="21" r="12.5" />
-      <path
-        className={styles.iconHandle}
-        d="M30.2 30.2 41 41"
-        fill="none"
-      />
+      <path className={styles.iconHandle} d="M30.2 30.2 41 41" fill="none" />
     </svg>
   );
 }

@@ -109,20 +109,18 @@ export function Error({
   const { mode: backgroundMode, style: backgroundStyle } =
     resolveSurfaceBackground(background, backgroundOpacity);
 
-  const retryAction = hideRetry
-    ? null
-    : retryComponent != null
-      ? retryComponent
-      : (
-          <button
-            type="button"
-            className={styles.retry}
-            style={retryStyle}
-            onClick={onRetry}
-          >
-            {retryLabel}
-          </button>
-        );
+  const retryAction = hideRetry ? null : retryComponent != null ? (
+    retryComponent
+  ) : (
+    <button
+      type="button"
+      className={styles.retry}
+      style={retryStyle}
+      onClick={onRetry}
+    >
+      {retryLabel}
+    </button>
+  );
 
   return (
     <section

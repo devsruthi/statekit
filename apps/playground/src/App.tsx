@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from 'react';
 import {
   LOADER_COLOR_GRADIENT,
   LOADER_COLOR_PRIMARY,
@@ -289,8 +296,7 @@ function useAnimatedProgress(active: boolean): number {
 }
 
 function LoaderPreview({ type }: { type: LoaderType }) {
-  const isProgress =
-    type === 'progress-circle' || type === 'progress-bar';
+  const isProgress = type === 'progress-circle' || type === 'progress-bar';
   const progress = useAnimatedProgress(isProgress);
 
   return (
@@ -531,9 +537,7 @@ export function App() {
       (entries) => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) => b.intersectionRatio - a.intersectionRatio,
-          )[0];
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (visible?.target.id) {
           setActiveNav(visible.target.id as NavId);
         }
@@ -625,9 +629,10 @@ export function App() {
           href="#live-demo"
           aria-label="StateKitJS"
           onClick={(e) => {
-          e.preventDefault();
-          goTo('live-demo');
-        }}>
+            e.preventDefault();
+            goTo('live-demo');
+          }}
+        >
           <img
             className="docs-logo-mark"
             src="/favicon.svg"
@@ -635,7 +640,9 @@ export function App() {
             width={36}
             height={36}
           />
-          <span className="docs-logo-text" aria-hidden="true">StateKitJS</span>
+          <span className="docs-logo-text" aria-hidden="true">
+            StateKitJS
+          </span>
         </a>
 
         <nav className="docs-top__links" aria-label="External links">
@@ -645,7 +652,11 @@ export function App() {
             target="_blank"
             rel="noreferrer"
           >
-            <svg className="docs-top__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <svg
+              className="docs-top__icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
               <path
                 fill="currentColor"
                 d="M1.763 0C.786 0 0 .786 0 1.763v20.474C0 23.214.786 24 1.763 24h20.474c.977 0 1.763-.786 1.763-1.763V1.763C24 .786 23.214 0 22.237 0zM5.13 5.323l13.837.019-.01 13.836h-3.464l.01-10.382h-3.456L12.04 19.17H5.113z"
@@ -659,7 +670,11 @@ export function App() {
             target="_blank"
             rel="noreferrer"
           >
-            <svg className="docs-top__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <svg
+              className="docs-top__icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
               <path
                 fill="currentColor"
                 d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
@@ -685,7 +700,9 @@ export function App() {
           className={navOpen ? 'sidebar sidebar--open' : 'sidebar'}
         >
           <p className="sidebar__label">
-            <span className="sidebar__label-icon" aria-hidden="true">📘</span>
+            <span className="sidebar__label-icon" aria-hidden="true">
+              📘
+            </span>
             Documentation
           </p>
           <nav className="sidebar__nav" aria-label="Docs">
@@ -805,7 +822,9 @@ export function App() {
                             role="status"
                             aria-live="polite"
                           >
-                            <p className="custom-badge">User-created component</p>
+                            <p className="custom-badge">
+                              User-created component
+                            </p>
                             <div className="custom-loading__orb" aria-hidden>
                               <span className="custom-loading__ring" />
                               <span className="custom-loading__core" />
@@ -823,7 +842,10 @@ export function App() {
                             <div className="custom-loading__track" aria-hidden>
                               <span className="custom-loading__bar" />
                             </div>
-                            <ul className="custom-loading__skeleton" aria-hidden>
+                            <ul
+                              className="custom-loading__skeleton"
+                              aria-hidden
+                            >
                               <li />
                               <li />
                               <li />
@@ -834,7 +856,9 @@ export function App() {
                       emptyComponent={
                         mode === 'empty' && useCustomComponent ? (
                           <div className="custom-empty">
-                            <p className="custom-badge">User-created component</p>
+                            <p className="custom-badge">
+                              User-created component
+                            </p>
                             <div className="custom-empty__icon" aria-hidden>
                               <span className="custom-empty__tray" />
                               <span className="custom-empty__dot" />
@@ -949,7 +973,9 @@ export function App() {
                           <div className="appearance__opacity">
                             <div className="range-head">
                               <span>Opacity</span>
-                              <span>{Math.round(backgroundOpacity * 100)}%</span>
+                              <span>
+                                {Math.round(backgroundOpacity * 100)}%
+                              </span>
                             </div>
                             <input
                               className="range"
@@ -1131,7 +1157,9 @@ export function App() {
 
             <div className="section-head section-head--sub">
               <h3>The problem</h3>
-              <p>Nested conditionals and one-off state components everywhere:</p>
+              <p>
+                Nested conditionals and one-off state components everywhere:
+              </p>
             </div>
             <CodeBlock code={CODE_PROBLEM} />
 
@@ -1150,8 +1178,8 @@ export function App() {
               <h2>Loading State</h2>
               <p>
                 Highest priority. Use the built-in loader UI, tune copy and
-                colors, or replace everything with{' '}
-                <code>loadingComponent</code>.
+                colors, or replace everything with <code>loadingComponent</code>
+                .
               </p>
             </div>
 

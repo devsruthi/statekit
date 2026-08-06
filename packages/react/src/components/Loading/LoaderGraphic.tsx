@@ -162,11 +162,7 @@ export function LoaderGraphic({
 
       return (
         <span className={graphicClass} style={style} data-loader={type}>
-          <svg
-            viewBox="0 0 100 50"
-            className={styles.infinitySvg}
-            aria-hidden
-          >
+          <svg viewBox="0 0 100 50" className={styles.infinitySvg} aria-hidden>
             {mode === 'gradient' ? (
               <defs>
                 <linearGradient
